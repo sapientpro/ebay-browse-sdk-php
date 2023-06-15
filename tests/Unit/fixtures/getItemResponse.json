@@ -1,0 +1,143 @@
+{
+  "itemId": "v1|1**********0|0",
+  "sellerItemRevision": "1",
+  "title": "Sample Item",
+  "shortDescription": "Summary",
+  "price": {
+    "value": "29.00",
+    "currency": "USD"
+  },
+  "categoryPath": "Home & Garden|Patio, Lawn & Garden|Outdoor Power Equipment|Other Outdoor Power Equipment Accessories",
+  "categoryIdPath": "159907|159912|29518|261019",
+  "condition": "New",
+  "conditionId": "1000",
+  "itemLocation": {
+    "city": "A**********h",
+    "stateOrProvince": "T**********e",
+    "postalCode": "3****",
+    "country": "US"
+  },
+  "image": {
+    "imageUrl": "https://i.ebayimg.com/images/g/Z**********l/s-l1600.jpg"
+  },
+  "brand": "test",
+  "seller": {
+    "username": "c**********r",
+    "feedbackPercentage": "98.6",
+    "feedbackScore": 16632
+  },
+  "mpn": "DCA800SSK2C",
+  "estimatedAvailabilities": [
+    {
+      "deliveryOptions": [
+        "SHIP_TO_HOME"
+      ],
+      "estimatedAvailabilityStatus": "IN_STOCK",
+      "estimatedAvailableQuantity": 2,
+      "estimatedSoldQuantity": 0
+    }
+  ],
+  "shippingOptions": [
+    {
+      "shippingServiceCode": "Economy Shipping",
+      "type": "Economy Shipping",
+      "shippingCost": {
+        "value": "950.00",
+        "currency": "USD"
+      },
+      "quantityUsedForEstimate": 1,
+      "minEstimatedDeliveryDate": "2020-11-06T10:00:00.000Z",
+      "maxEstimatedDeliveryDate": "2020-11-06T10:00:00.000Z",
+      "additionalShippingCostPerUnit": {
+        "value": "950.00",
+        "currency": "USD"
+      },
+      "shippingCostType": "FIXED"
+    }
+  ],
+  "shipToLocations": {
+    "regionIncluded": [
+      {
+        "regionName": "United States",
+        "regionType": "COUNTRY",
+        "regionId": "US"
+      }
+    ],
+    "regionExcluded": [
+      {
+        "regionName": "Alaska/Hawaii",
+        "regionType": "COUNTRY_REGION",
+        "regionId": "_AH"
+      },
+      {
+        "regionName": "US Protectorates",
+        "regionType": "COUNTRY_REGION",
+        "regionId": "_PR"
+      }
+    ]
+  },
+  "returnTerms": {
+    "returnsAccepted": true,
+    "refundMethod": "MONEY_BACK",
+    "returnShippingCostPayer": "BUYER",
+    "returnPeriod": {
+      "value": 14,
+      "unit": "CALENDAR_DAY"
+    }
+  },
+  "taxes": [
+    {
+      "taxJurisdiction": {
+        "region": {
+          "regionName": "Alabama",
+          "regionType": "STATE_OR_PROVINCE"
+        },
+        "taxJurisdictionId": "AL"
+      },
+      "taxType": "STATE_SALES_TAX",
+      "shippingAndHandlingTaxed": true,
+      "includedInPrice": false,
+      "ebayCollectAndRemitTax": true
+    }
+  ],
+  "localizedAspects": [
+    {
+      "type": "STRING",
+      "name": "Brand",
+      "value": "Multiquip"
+    }
+  ],
+  "primaryProductReviewRating": {
+    "reviewCount": 0,
+    "averageRating": "0.0",
+    "ratingHistograms": [
+      {
+        "rating": "5",
+        "count": 0
+      }
+    ]
+  },
+  "priorityListing": true,
+  "topRatedBuyingExperience": false,
+  "buyingOptions": [
+    "FIXED_PRICE"
+  ],
+  "itemWebUrl": "https://www.ebay.com/itm/Sample-Item/1**********0",
+  "description": "Detailed description",
+  "paymentMethods": [
+    {
+      "paymentMethodType": "WALLET",
+      "paymentMethodBrands": [
+        {
+          "paymentMethodBrandType": "PAYPAL"
+        }
+      ]
+    }
+  ],
+  "enabledForGuestCheckout": false,
+  "eligibleForInlineCheckout": true,
+  "lotSize": 0,
+  "legacyItemId": "1**********0",
+  "adultOnly": false,
+  "categoryId": "261019"
+}

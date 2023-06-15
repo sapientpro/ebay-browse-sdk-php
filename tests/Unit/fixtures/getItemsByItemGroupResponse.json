@@ -1,0 +1,142 @@
+{
+  "commonDescriptions": [
+    {
+      "description": "Echo Fox Clothing",
+      "itemIds": [
+        "v1|1**********9|4**********2",
+        "v1|1**********9|4**********3",
+        "v1|1**********9|4**********5",
+        "v1|1**********9|4**********6"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "itemId": "v1|1**********9|4**********2",
+      "sellerItemRevision": "6",
+      "title": "American Apparel T-Shirt 2001 Fine Jersey Crew Neck Blank Cotton Tee Shirt",
+      "shortDescription": "An American classic! The fine jersey crew neck tee is one of the most popular tee shirts in the world. Known for it's unmatched smoothness, and perfect fit. This tee shirt is crafted from high quality combed cotton, and made right in the USA.",
+      "price": {
+        "value": "6.90",
+        "currency": "USD"
+      },
+      "categoryPath": "Clothing, Shoes & Accessories|Men's Clothing|Men's Shirts|T-Shirts",
+      "categoryIdPath": "11450|1059|185100|15687",
+      "condition": "New without tags",
+      "conditionId": "1500",
+      "itemLocation": {
+        "city": "United States",
+        "country": "US"
+      },
+      "image": {
+        "imageUrl": "https://i.ebayimg.com/00/s/N**********=/z/xB0AAOSwBahVei9n/$_57.JPG?set_id=8**********F"
+      },
+      "color": "Black",
+      "material": "100% Cotton",
+      "pattern": "Solid",
+      "sizeType": "Regular",
+      "brand": "American Apparel",
+      "itemCreationDate": "2022-02-28T18:47:21.000Z",
+      "itemEndDate": "2022-03-05T16:53:41.000Z",
+      "seller": {
+        "username": "e***g",
+        "feedbackPercentage": "98.9",
+        "feedbackScore": 13307
+      },
+      "estimatedAvailabilities": [
+        {
+          "deliveryOptions": [
+            "SHIP_TO_HOME"
+          ],
+          "availabilityThresholdType": "MORE_THAN",
+          "availabilityThreshold": 10,
+          "estimatedAvailabilityStatus": "IN_STOCK",
+          "estimatedSoldQuantity": 492
+        }
+      ],
+      "shippingOptions": [
+        {
+          "shippingServiceCode": "USPS First Class Package",
+          "trademarkSymbol": "�",
+          "shippingCarrierCode": "USPS",
+          "type": "Standard Shipping",
+          "shippingCost": {
+            "value": "3.50",
+            "currency": "USD"
+          },
+          "quantityUsedForEstimate": 1,
+          "minEstimatedDeliveryDate": "2017-06-08T10:00:00.000Z",
+          "maxEstimatedDeliveryDate": "2017-06-13T10:00:00.000Z",
+          "shipToLocationUsedForEstimate": {
+            "country": "US"
+          },
+          "additionalShippingCostPerUnit": {
+            "value": "1.50",
+            "currency": "USD"
+          },
+          "shippingCostType": "FIXED"
+        }
+      ],
+      "shipToLocations": {
+        "regionIncluded": [
+          {
+            "regionName": "Worldwide",
+            "regionType": "WORLDWIDE",
+            "regionId": "WORLDWIDE"
+          }
+        ],
+        "regionExcluded": [
+          {
+            "regionName": "Africa",
+            "regionType": "WORLD_REGION",
+            "regionId": "AFRICA"
+          }
+        ]
+      },
+      "returnTerms": {
+        "returnsAccepted": true,
+        "refundMethod": "MONEY_BACK",
+        "returnMethod": "EXCHANGE",
+        "returnShippingCostPayer": "BUYER",
+        "returnPeriod": {
+          "value": 60,
+          "unit": "CALENDAR_DAY"
+        }
+      },
+      "localizedAspects": [
+        {
+          "type": "STRING",
+          "name": "Size (Men's)",
+          "value": "S"
+        }
+      ],
+      "priorityListing": true,
+      "topRatedBuyingExperience": false,
+      "buyingOptions": [
+        "FIXED_PRICE"
+      ],
+      "primaryItemGroup": {
+        "itemGroupId": "1**********9",
+        "itemGroupType": "SELLER_DEFINED_VARIATIONS",
+        "itemGroupHref": "https://api.ebay.com/buy/browse/v1/get_items_by_item_group?item_group_id=1**********9",
+        "itemGroupTitle": "American Apparel T-Shirt 2001 Fine Jersey Crew Neck Blank Cotton Tee Shirt",
+        "itemGroupImage": {
+          "imageUrl": "https://i.ebayimg.com/00/s/N**********=/z/ZYkAAOSwstxVJKeL/$_57.JPG?set_id=8**********F"
+        },
+        "itemGroupAdditionalImages": [
+          {
+            "imageUrl": "https://i.ebayimg.com/00/s/N**********=/z/E~AAAOSw~OdVeiy~/$_57.JPG?set_id=8**********F"
+          },
+          {
+            "imageUrl": "https://i.ebayimg.com/00/s/N**********=/z/cn4AAOSwBLlVeiy0/$_57.JPG?set_id=8**********F"
+          }
+        ]
+      },
+      "enabledForGuestCheckout": true,
+      "eligibleForInlineCheckout": true,
+      "legacyItemId": "1**********9",
+      "adultOnly": false,
+      "categoryId": "15687"
+    }
+  ]
+}

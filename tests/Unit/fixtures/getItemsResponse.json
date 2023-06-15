@@ -1,0 +1,102 @@
+{
+  "total": 2,
+  "items": [
+    {
+      "itemId": "v1|1**********7|0",
+      "sellerItemRevision": "5",
+      "price": {
+        "value": "34.75",
+        "currency": "USD"
+      },
+      "estimatedAvailabilities": [
+        {
+          "availabilityThresholdType": "MORE_THAN",
+          "availabilityThreshold": 10,
+          "estimatedAvailabilityStatus": "IN_STOCK",
+          "estimatedSoldQuantity": 695
+        }
+      ],
+      "priorityListing": false,
+      "topRatedBuyingExperience": true,
+      "itemWebUrl": "https://www.ebay.com/itm/Mini-Drone-4DRC-V2-Selfie-WIFI-FPV-With-HD-Camera-Foldable-Arm-RC-Quadcopter-US-/1**********7",
+      "enabledForGuestCheckout": false,
+      "eligibleForInlineCheckout": false,
+      "shippingOptions": [
+        {
+          "shippingServiceCode": "International Priority Shipping",
+          "shippingCarrierCode": "PBI",
+          "type": "Expedited shipping",
+          "shippingCost": {
+            "value": "21.20",
+            "currency": "USD"
+          },
+          "importCharges": {
+            "value": "25.31",
+            "currency": "USD"
+          },
+          "fulfilledThrough": "GLOBAL_SHIPPING",
+          "quantityUsedForEstimate": 1,
+          "minEstimatedDeliveryDate": "2022-03-24T10:04:38.000Z",
+          "maxEstimatedDeliveryDate": "2022-03-31T10:04:38.000Z",
+          "shippingCostType": "FIXED"
+        }
+      ],
+      "legacyItemId": "1**********7",
+      "itemCreationDate": "2022-02-28T18:47:21.000Z"
+    },
+    {
+      "itemId": "v1|2**********4|0",
+      "sellerItemRevision": "106",
+      "price": {
+        "value": "65.49",
+        "currency": "USD"
+      },
+      "currentBidPrice": {
+        "value": "41.50",
+        "currency": "USD"
+      },
+      "estimatedAvailabilities": [
+        {
+          "availabilityThresholdType": "MORE_THAN",
+          "availabilityThreshold": 10,
+          "estimatedAvailabilityStatus": "IN_STOCK",
+          "estimatedSoldQuantity": 642
+        }
+      ],
+      "priorityListing": false,
+      "topRatedBuyingExperience": true,
+      "bidCount": 8,
+      "itemWebUrl": "https://www.ebay.com/itm/2020-NEW-Rc-Drone-4k-HD-Wide-Angle-Camera-WiFi-fpv-Drone-Dual-Camera-Quadcopter-/2**********4",
+      "minimumPriceToBid": {
+        "value": "42.50",
+        "currency": "USD"
+      },
+      "uniqueBidderCount": 2,
+      "reservePriceMet": true,
+      "enabledForGuestCheckout": false,
+      "eligibleForInlineCheckout": true,
+      "shippingOptions": [
+        {
+          "shippingServiceCode": "International Priority Shipping",
+          "shippingCarrierCode": "PBI",
+          "type": "Expedited shipping",
+          "shippingCost": {
+            "value": "21.20",
+            "currency": "USD"
+          },
+          "importCharges": {
+            "value": "25.31",
+            "currency": "USD"
+          },
+          "fulfilledThrough": "GLOBAL_SHIPPING",
+          "quantityUsedForEstimate": 1,
+          "minEstimatedDeliveryDate": "2022-03-24T10:04:38.000Z",
+          "maxEstimatedDeliveryDate": "2022-03-31T10:04:38.000Z",
+          "shippingCostType": "FIXED"
+        }
+      ],
+      "legacyItemId": "2**********4",
+      "itemCreationDate": "2022-02-28T18:47:21.000Z"
+    }
+  ]
+}
