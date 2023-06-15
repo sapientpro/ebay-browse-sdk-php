@@ -6,6 +6,9 @@
         "sdk",
         "api"
     ],
+    "license": [
+        "MIT"
+    ],
     "require": {
         "php": "^8.1",
         "ext-curl": "*",
