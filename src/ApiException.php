@@ -29,7 +29,7 @@ class ApiException extends Exception
         string $message = "",
         int $code = 0,
         ?array $responseHeaders = [],
-        mixed $responseBody = \null,
+        mixed $responseBody = null,
     ) {
         parent::__construct($message, $code);
         $this->responseHeaders = $responseHeaders;
