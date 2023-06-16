@@ -5,7 +5,8 @@ Using the Browse API, you can create a rich selection of items for your buyers t
 
 ## Requirements
 
-PHP 8.1 and later
+- PHP 8.1 and later
+- ext-json and ext-curl extensions enabled
 
 ## Installation & Usage
 
