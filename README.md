@@ -44,8 +44,6 @@ echo 'Exception when calling InventoryItemApi->bulkCreateOrReplaceInventoryItem:
 }
 ```
 
-*Note*: Models that are returned from Api methods may not contain all properties that are declared in the class.
-
 ## Creating Models
 
 Some SDK methods require `$body` variable as a parameter. It refers to a Model class that implements EbayModelInterface.
