@@ -53,13 +53,4 @@ class Serializer
     {
         return rawurlencode($value);
     }
-
-    public static function toQueryValue(array|string $object): string
-    {
-        if (is_array($object)) {
-            return implode(',', $object);
-        }
-
-        return $object;
-    }
 }

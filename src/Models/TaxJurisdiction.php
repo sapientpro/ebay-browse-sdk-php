@@ -3,6 +3,7 @@
 namespace SapientPro\EbayBrowseSDK\Models;
 
 use SapientPro\EbayBrowseSDK\Models\Concerns\FillsModel;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * The type that defines the fields for the tax jurisdiction details.
@@ -15,8 +16,10 @@ class TaxJurisdiction implements EbayModelInterface
      * The region of the tax jurisdiction.
      * @var Region|null
      */
+    #[Assert\Type(Region::class)]
     public ?Region $region;
 
     /** The identifier of the tax jurisdiction. */
+    #[Assert\Type('string')]
     public ?string $taxJurisdictionId;
 }

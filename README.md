@@ -49,7 +49,7 @@ echo 'Exception when calling InventoryItemApi->bulkCreateOrReplaceInventoryItem:
 Some SDK methods require `$body` variable as a parameter. It refers to a Model class that implements EbayModelInterface.
 There are several ways to create a Model class:
 
-# fromArray()
+### fromArray()
 You can create a Model class using fromArray() method.
 It will throw an exception if a property does not exist in the model class.
 
@@ -64,7 +64,7 @@ Item::fromArray([
     )]
 ])
 ```
-# fromPlainArray()
+### fromPlainArray()
 
 It is also possible to create a Model from plain associative array.
 The previous example can be rewritten as follows:
@@ -78,7 +78,7 @@ Item::fromPlainArray([
 ])
 ```
 
-# fromJson()
+### fromJson()
 
 It is also possible to create a Model from JSON string.
 

@@ -109,8 +109,6 @@ class ItemApi implements EbayApiInterface
         string $fieldgroups = null,
         string $xEbayCEnduserctx = null,
     ): array {
-        $returnType = Item::class;
-
         $request = $this->getItemRequest(
             $itemId,
             $xEbayCMarketplaceId,
@@ -118,7 +116,7 @@ class ItemApi implements EbayApiInterface
             $xEbayCEnduserctx,
         );
 
-        return $this->ebayClient->sendRequest($request, $returnType);
+        return $this->ebayClient->sendRequest($request, returnType: Item::class);
     }
 
     /**
@@ -138,26 +136,23 @@ class ItemApi implements EbayApiInterface
         string $xEbayCEnduserctx = null,
     ): Request {
         $resourcePath = '/item/{item_id}';
-        $queryParams = [];
-        $headerParams = [];
         $resourcePath = str_replace(
             '{' . 'item_id' . '}',
             Serializer::toPathValue($itemId),
             $resourcePath
         );
 
-        if (null !== $fieldgroups) {
-            $queryParams['fieldgroups'] = $fieldgroups;
-        }
+        $queryParameters['fieldgroups'] = $fieldgroups;
 
-        $headerParams['X-EBAY-C-ENDUSERCTX'] = $xEbayCEnduserctx;
-
-        $headerParams['X-EBAY-C-MARKETPLACE-ID'] = $xEbayCMarketplaceId->value;
+        $headerParameters = [
+            'X-EBAY-C-ENDUSERCTX' => $xEbayCEnduserctx,
+            'X-EBAY-C-MARKETPLACE-ID' => $xEbayCMarketplaceId->value,
+        ];
 
         return $this->ebayRequest->getRequest(
             $resourcePath,
-            queryParameters: $queryParams,
-            headerParameters: $headerParams
+            queryParameters: $queryParameters,
+            headerParameters: $headerParameters
         );
     }
 
@@ -214,8 +209,6 @@ class ItemApi implements EbayApiInterface
         string $legacyVariationSku = null,
         string $xEbayCEnduserctx = null,
     ): array {
-        $returnType = Item::class;
-
         $request = $this->getItemByLegacyIdRequest(
             $legacyItemId,
             $xEbayCMarketplaceId,
@@ -225,7 +218,7 @@ class ItemApi implements EbayApiInterface
             $xEbayCEnduserctx,
         );
 
-        return $this->ebayClient->sendRequest($request, $returnType);
+        return $this->ebayClient->sendRequest($request, returnType: Item::class);
     }
 
     /**
@@ -249,32 +242,23 @@ class ItemApi implements EbayApiInterface
         string $xEbayCEnduserctx = null,
     ): Request {
         $resourcePath = '/item/get_item_by_legacy_id';
-        $queryParams = [];
-        $headerParams = [];
 
-        if (null !== $fieldgroups) {
-            $queryParams['fieldgroups'] = $fieldgroups;
-        }
+        $queryParameters = [
+            'fieldgroups' => $fieldgroups,
+            'legacy_item_id' => $legacyItemId,
+            'legacy_variation_id' => $legacyVariationId,
+            'legacy_variation_sku' => $legacyVariationSku,
+        ];
 
-        $queryParams['legacy_item_id'] = Serializer::toQueryValue($legacyItemId);
-
-
-        if (null !== $legacyVariationId) {
-            $queryParams['legacy_variation_id'] = $legacyVariationId;
-        }
-
-        if (null !== $legacyVariationSku) {
-            $queryParams['legacy_variation_sku'] = $legacyVariationSku;
-        }
-
-        $headerParams['X-EBAY-C-ENDUSERCTX'] = $xEbayCEnduserctx;
-
-        $headerParams['X-EBAY-C-MARKETPLACE-ID'] = $xEbayCMarketplaceId->value;
+        $headerParameters = [
+            'X-EBAY-C-ENDUSERCTX' => $xEbayCEnduserctx,
+            'X-EBAY-C-MARKETPLACE-ID' => $xEbayCMarketplaceId->value,
+        ];
 
         return $this->ebayRequest->getRequest(
             $resourcePath,
-            queryParameters: $queryParams,
-            headerParameters: $headerParams
+            queryParameters: $queryParameters,
+            headerParameters: $headerParameters
         );
     }
 
@@ -349,25 +333,21 @@ class ItemApi implements EbayApiInterface
         string $xEbayCEnduserctx = null,
     ): Request {
         $resourcePath = '/item/';
-        $queryParams = [];
-        $headerParams = [];
 
-        if (null !== $itemIds) {
-            $queryParams['item_ids'] = $itemIds;
-        }
+        $queryParameters = [
+            'item_ids' => $itemIds,
+            'item_group_ids' => $itemGroupIds,
+        ];
 
-        if (null !== $itemGroupIds) {
-            $queryParams['item_group_ids'] = $itemGroupIds;
-        }
-
-        $headerParams['X-EBAY-C-ENDUSERCTX'] = $xEbayCEnduserctx;
-
-        $headerParams['X-EBAY-C-MARKETPLACE-ID'] = $xEbayCMarketplaceId->value;
+        $headerParameters = [
+            'X-EBAY-C-ENDUSERCTX' => $xEbayCEnduserctx,
+            'X-EBAY-C-MARKETPLACE-ID' => $xEbayCMarketplaceId->value,
+        ];
 
         return $this->ebayRequest->getRequest(
             $resourcePath,
-            queryParameters: $queryParams,
-            headerParameters: $headerParams
+            queryParameters: $queryParameters,
+            headerParameters: $headerParameters
         );
     }
 
@@ -435,20 +415,18 @@ class ItemApi implements EbayApiInterface
         string $xEbayCEnduserctx = null,
     ): Request {
         $resourcePath = '/item/get_items_by_item_group';
-        $queryParams = [];
-        $headerParams = [];
 
-        $queryParams['item_group_id'] = Serializer::toQueryValue($itemGroupId);
+        $queryParameters['item_group_id'] = $itemGroupId;
 
-
-        $headerParams['X-EBAY-C-ENDUSERCTX'] = $xEbayCEnduserctx;
-
-        $headerParams['X-EBAY-C-MARKETPLACE-ID'] = $xEbayCMarketplaceId->value;
+        $headerParameters = [
+            'X-EBAY-C-ENDUSERCTX' => $xEbayCEnduserctx,
+            'X-EBAY-C-MARKETPLACE-ID' => $xEbayCMarketplaceId->value,
+        ];
 
         return $this->ebayRequest->getRequest(
             $resourcePath,
-            queryParameters: $queryParams,
-            headerParameters: $headerParams
+            queryParameters: $queryParameters,
+            headerParameters: $headerParameters
         );
     }
 
@@ -515,7 +493,6 @@ class ItemApi implements EbayApiInterface
         MarketplaceIdEnum $xEbayCMarketplaceId,
     ): Request {
         $resourcePath = '/item/{item_id}/check_compatibility';
-        $headerParams = [];
         $resourcePath = str_replace(
             '{' . 'item_id' . '}',
             Serializer::toPathValue($itemId),

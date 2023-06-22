@@ -222,69 +222,32 @@ class ItemSummaryApi implements EbayApiInterface
         string $xEbayCEnduserctx = null,
     ): Request {
         $resourcePath = '/item_summary/search';
-        $queryParams = [];
-        $headerParams = [];
 
-        if (null !== $aspectFilter) {
-            $queryParams['aspect_filter'] = $aspectFilter;
-        }
+        $queryParameters = [
+            'aspect_filter' => $aspectFilter,
+            'auto_correct' => $autoCorrect,
+            'category_ids' => $categoryIds,
+            'charity_ids' => $charityIds,
+            'compatibility_filter' => $compatibilityFilter,
+            'epid' => $epid,
+            'fieldgroups' => $fieldgroups,
+            'filter' => $filter,
+            'gtin' => $gtin,
+            'limit' => $limit,
+            'offset' => $offset,
+            'q' => $q,
+            'sort' => $sort,
+        ];
 
-        if (null !== $autoCorrect) {
-            $queryParams['auto_correct'] = $autoCorrect;
-        }
-
-        if (null !== $categoryIds) {
-            $queryParams['category_ids'] = $categoryIds;
-        }
-
-        if (null !== $charityIds) {
-            $queryParams['charity_ids'] = $charityIds;
-        }
-
-        if (null !== $compatibilityFilter) {
-            $queryParams['compatibility_filter'] = $compatibilityFilter;
-        }
-
-        if (null !== $epid) {
-            $queryParams['epid'] = $epid;
-        }
-
-        if (null !== $fieldgroups) {
-            $queryParams['fieldgroups'] = $fieldgroups;
-        }
-
-        if (null !== $filter) {
-            $queryParams['filter'] = $filter;
-        }
-
-        if (null !== $gtin) {
-            $queryParams['gtin'] = $gtin;
-        }
-
-        if (null !== $limit) {
-            $queryParams['limit'] = $limit;
-        }
-
-        if (null !== $offset) {
-            $queryParams['offset'] = $offset;
-        }
-
-        if (null !== $q) {
-            $queryParams['q'] = $q;
-        }
-
-        if (null !== $sort) {
-            $queryParams['sort'] = $sort;
-        }
-
-        $headerParams['X-EBAY-C-ENDUSERCTX'] = $xEbayCEnduserctx;
-
-        $headerParams['X-EBAY-C-MARKETPLACE-ID'] = $xEbayCMarketplaceId->value;
+        $headerParameters = [
+            'X-EBAY-C-ENDUSERCTX' => $xEbayCEnduserctx,
+            'X-EBAY-C-MARKETPLACE-ID' => $xEbayCMarketplaceId->value,
+        ];
 
         return $this->ebayRequest->getRequest(
             $resourcePath,
-            queryParameters: $queryParams,
-            headerParameters: $headerParams
+            queryParameters: $queryParameters,
+            headerParameters: $headerParameters
         );
     }
 
@@ -417,50 +380,28 @@ class ItemSummaryApi implements EbayApiInterface
         string $xEbayCEnduserctx = null,
     ): Request {
         $resourcePath = '/item_summary/search_by_image';
-        $queryParams = [];
-        $headerParams = [];
 
-        if (null !== $aspectFilter) {
-            $queryParams['aspect_filter'] = $aspectFilter;
-        }
+        $queryParameters = [
+            'aspect_filter' => $aspectFilter,
+            'category_ids' => $categoryIds,
+            'charity_ids' => $charityIds,
+            'fieldgroups' => $fieldgroups,
+            'filter' => $filter,
+            'limit' => $limit,
+            'offset' => $offset,
+            'sort' => $sort,
+        ];
 
-        if (null !== $categoryIds) {
-            $queryParams['category_ids'] = $categoryIds;
-        }
-
-        if (null !== $charityIds) {
-            $queryParams['charity_ids'] = $charityIds;
-        }
-
-        if (null !== $fieldgroups) {
-            $queryParams['fieldgroups'] = $fieldgroups;
-        }
-
-        if (null !== $filter) {
-            $queryParams['filter'] = $filter;
-        }
-
-        if (null !== $limit) {
-            $queryParams['limit'] = $limit;
-        }
-
-        if (null !== $offset) {
-            $queryParams['offset'] = $offset;
-        }
-
-        if (null !== $sort) {
-            $queryParams['sort'] = $sort;
-        }
-
-        $headerParams['X-EBAY-C-ENDUSERCTX'] = $xEbayCEnduserctx;
-
-        $headerParams['X-EBAY-C-MARKETPLACE-ID'] = $xEbayCMarketplaceId->value;
+        $headerParameters = [
+            'X-EBAY-C-ENDUSERCTX' => $xEbayCEnduserctx,
+            'X-EBAY-C-MARKETPLACE-ID' => $xEbayCMarketplaceId->value,
+        ];
 
         return $this->ebayRequest->postRequest(
             $resourcePath,
             $body,
-            queryParameters: $queryParams,
-            headerParameters: $headerParams
+            queryParameters: $queryParameters,
+            headerParameters: $headerParameters
         );
     }
 }

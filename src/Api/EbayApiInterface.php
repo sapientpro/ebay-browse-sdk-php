@@ -2,6 +2,9 @@
 
 namespace SapientPro\EbayBrowseSDK\Api;
 
+use SapientPro\EbayBrowseSDK\Client\EbayClient;
+use SapientPro\EbayBrowseSDK\Configuration;
+
 /**
  * @ignore
  * @package  SapientPro\EbayBrowseSDK
@@ -10,4 +13,7 @@ namespace SapientPro\EbayBrowseSDK\Api;
  */
 interface EbayApiInterface
 {
+    public function getConfig(): Configuration;
+
+    public function setEbayClient(EbayClient $ebayClient): void;
 }
