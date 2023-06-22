@@ -14,13 +14,13 @@ class HazardPictogram implements EbayModelInterface
 
     /** The description of the hazard pictogram, such as Flammable. */
     #[Assert\Type('string')]
-    public ?string $pictogramDescription;
+    public ?string $pictogramDescription = null;
 
     /** The ID of the hazard pictogram. */
     #[Assert\Type('string')]
-    public ?string $pictogramId;
+    public ?string $pictogramId = null;
 
     /** The URL of the hazard pictogram. */
     #[Assert\Type('string')]
-    public ?string $pictogramUrl;
+    public ?string $pictogramUrl = null;
 }

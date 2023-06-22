@@ -14,7 +14,7 @@ class ErrorParameter implements EbayModelInterface
 
     /** This is the name of input field that caused an issue with the call request. */
     #[Assert\Type('string')]
-    public ?string $name;
+    public ?string $name = null;
 
     /** This is the actual value that was passed in for the element specified in the <b> name</b>  field. */
     #[Assert\Type('string')]

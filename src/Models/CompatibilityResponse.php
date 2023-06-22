@@ -18,12 +18,12 @@ class CompatibilityResponse implements EbayModelInterface
      * @var CompatibilityStatus|null
      */
     #[Assert\Type(CompatibilityStatus::class)]
-    public ?CompatibilityStatus $compatibilityStatus;
+    public ?CompatibilityStatus $compatibilityStatus = null;
 
     /**
      * An array of warning messages. These types of errors do not prevent the method from executing but should be checked.
      * @var Error[]|null
      */
     #[Assert\Type('array')]
-    public ?array $warnings;
+    public ?array $warnings = null;
 }

@@ -14,9 +14,9 @@ class HazardStatement implements EbayModelInterface
 
     /** A description of the nature of the hazard, such as whether the material is toxic if swallowed. */
     #[Assert\Type('string')]
-    public ?string $statementDescription;
+    public ?string $statementDescription = null;
 
     /** The ID of the hazard statement. */
     #[Assert\Type('string')]
-    public ?string $statementId;
+    public ?string $statementId = null;
 }

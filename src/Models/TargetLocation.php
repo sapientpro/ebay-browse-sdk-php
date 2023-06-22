@@ -14,9 +14,9 @@ class TargetLocation implements EbayModelInterface
 
     /** This value shows the unit of measurement used to measure the distance between the location of the item and the buyer's location. This value is typically <code> mi</code> or <code> km</code>. */
     #[Assert\Type('string')]
-    public ?string $unitOfMeasure;
+    public ?string $unitOfMeasure = null;
 
     /** This value indicates the distance (measured in the measurement unit in the <b> unitOfMeasure</b>  field) between the item location and the buyer's location. */
     #[Assert\Type('string')]
-    public ?string $value;
+    public ?string $value = null;
 }

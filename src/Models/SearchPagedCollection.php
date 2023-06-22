@@ -17,7 +17,7 @@ class SearchPagedCollection implements EbayModelInterface
      * @var AutoCorrections|null
      */
     #[Assert\Type(AutoCorrections::class)]
-    public ?AutoCorrections $autoCorrections;
+    public ?AutoCorrections $autoCorrections = null;
 
     /** The URI of the current page of results. <br><br>The following example of the <b> search</b> method returns items 1 thru 5 from the list of items found. <br><br><code>https://api.ebay.com/buy/v1/item_summary/search?q=shirt&limit=5&offset=0</code>. */
     #[Assert\Type('string')]
@@ -36,7 +36,7 @@ class SearchPagedCollection implements EbayModelInterface
 
     /** The URI for the next page of results. This value is returned if there is an additional page of results to return from the result set. <br><br>The following example of the <b> search</b> method returns items 5 thru 10 from the list of items found.<br> <br><code>https://api.ebay.com/buy/v1/item_summary/search?query=t-shirts&limit=5&offset=10 </code> */
     #[Assert\Type('string')]
-    public ?string $next;
+    public ?string $next = null;
 
     /** This value indicates the <b>offset</b> used for current page of items being returned. Assume the initial request used an <b>offset</b> of <code>0</code> and a <b>limit</b> of <code>3</code>. Then in the first page of results, this value would be <code>0</code>, and items 1-3 are returned. For the second page, this value is <code>3</code> and so on. */
     #[Assert\Type('int')]
@@ -62,5 +62,5 @@ class SearchPagedCollection implements EbayModelInterface
      * @var Error[]|null
      */
     #[Assert\Type('array')]
-    public ?array $warnings;
+    public ?array $warnings = null;
 }

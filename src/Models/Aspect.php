@@ -14,12 +14,12 @@ class Aspect implements EbayModelInterface
 
     /** The text representing the name of the aspect for the name/value pair, such as Brand. */
     #[Assert\Type('string')]
-    public ?string $localizedName;
+    public ?string $localizedName = null;
 
     /**
      * The text representing the value of the aspect for the name/value pair, such as Apple.
      * @var string[]|null
      */
     #[Assert\Type('array')]
-    public ?array $localizedValues;
+    public ?array $localizedValues = null;
 }

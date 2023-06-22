@@ -17,26 +17,26 @@ class PaymentMethod implements EbayModelInterface
      * @var PaymentMethodTypeEnum|null
      */
     #[Assert\Type(PaymentMethodTypeEnum::class)]
-    public ?PaymentMethodTypeEnum $paymentMethodType;
+    public ?PaymentMethodTypeEnum $paymentMethodType = null;
 
     /**
      * The payment method brands, including the payment method brand type and logo image.
      * @var PaymentMethodBrand[]|null
      */
     #[Assert\Type('array')]
-    public ?array $paymentMethodBrands;
+    public ?array $paymentMethodBrands = null;
 
     /**
      * The payment instructions for the buyer, such as <i>cash in person</i> or <i>contact seller</i>.
      * @var PaymentInstructionEnum[]|null
      */
     #[Assert\Type('array')]
-    public ?array $paymentInstructions;
+    public ?array $paymentInstructions = null;
 
     /**
      * The seller instructions to the buyer, such as <i>accepts credit cards</i> or <i>see description</i>.
      * @var SellerInstructionEnum[]|null
      */
     #[Assert\Type('array')]
-    public ?array $sellerInstructions;
+    public ?array $sellerInstructions = null;
 }

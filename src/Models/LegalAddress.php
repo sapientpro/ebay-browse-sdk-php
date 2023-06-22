@@ -15,11 +15,11 @@ class LegalAddress implements EbayModelInterface
 
     /** The first line of the street address. */
     #[Assert\Type('string')]
-    public ?string $addressLine1;
+    public ?string $addressLine1 = null;
 
     /** The second line of the street address. This field is not always used, but can be used for 'Suite Number' or 'Apt Number'. */
     #[Assert\Type('string')]
-    public ?string $addressLine2;
+    public ?string $addressLine2 = null;
 
     /** The city of the address. */
     #[Assert\Type('string')]
@@ -30,19 +30,19 @@ class LegalAddress implements EbayModelInterface
      * @var CountryCodeEnum|null
      */
     #[Assert\Type(CountryCodeEnum::class)]
-    public ?CountryCodeEnum $country;
+    public ?CountryCodeEnum $country = null;
 
     /** The name of the country of the address. */
     #[Assert\Type('string')]
-    public ?string $countryName;
+    public ?string $countryName = null;
 
     /** The name of the county of the address. */
     #[Assert\Type('string')]
-    public ?string $county;
+    public ?string $county = null;
 
     /** The postal code of the address. */
     #[Assert\Type('string')]
-    public ?string $postalCode;
+    public ?string $postalCode = null;
 
     /** The state or province of the address. */
     #[Assert\Type('string')]

@@ -18,41 +18,41 @@ class ShippingOption implements EbayModelInterface
      * @var ConvertedAmount|null
      */
     #[Assert\Type(ConvertedAmount::class)]
-    public ?ConvertedAmount $additionalShippingCostPerUnit;
+    public ?ConvertedAmount $additionalShippingCostPerUnit = null;
 
     /** The deadline date that the item must be purchased by in order to be received by the buyer within the delivery window (<b> maxEstimatedDeliveryDate</b> and  <b> minEstimatedDeliveryDate</b> fields). This field is returned only for items that are eligible for 'Same Day Handling'. For these items, the value of this field is what is displayed in the <b> Delivery</b> line on the View Item page.  <br><br>This value is returned in UTC format (yyyy-MM-ddThh:mm:ss.sssZ), which you can convert into the local time of the buyer. */
     #[Assert\Type('string')]
-    public ?string $cutOffDateUsedForEstimate;
+    public ?string $cutOffDateUsedForEstimate = null;
 
     /**
      * If the item is being shipped by the eBay <a href="https://pages.ebay.com/seller-center/shipping/global-shipping-program.html ">Global Shipping program</a>, this field returns <code>GLOBAL_SHIPPING</code>.<br><br>If the item is being shipped using the eBay International Shipping program, this field returns <code>INTERNATIONAL_SHIPPING</code>. <br><br>Otherwise, this field is null. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/browse/types/gct:FulfilledThroughEnum'>eBay API documentation</a>
      * @var FulfilledThroughEnum|null
      */
     #[Assert\Type(FulfilledThroughEnum::class)]
-    public ?FulfilledThroughEnum $fulfilledThrough;
+    public ?FulfilledThroughEnum $fulfilledThrough = null;
 
     /** Indicates if the seller has committed to shipping the item with eBay Guaranteed Delivery. With eBay Guaranteed Delivery, the  seller is committed to getting the line item to the buyer within 4 business days or less. See the <a href="https://www.ebay.com/help/buying/shipping-delivery/buying-items-ebay-guaranteed-delivery?id=4641 ">Buying items with eBay Guaranteed Delivery</a> help topic for more details about eBay Guaranteed Delivery. */
     #[Assert\Type('bool')]
-    public ?bool $guaranteedDelivery;
+    public ?bool $guaranteedDelivery = null;
 
     /**
      * The <a href="https://pages.ebay.com/seller-center/shipping/global-shipping-program.html ">Global Shipping Program</a> import charges for this item.
      * @var ConvertedAmount|null
      */
     #[Assert\Type(ConvertedAmount::class)]
-    public ?ConvertedAmount $importCharges;
+    public ?ConvertedAmount $importCharges = null;
 
     /** The end date of the delivery window (latest projected delivery date).  This value is returned in UTC format (yyyy-MM-ddThh:mm:ss.sssZ), which you can convert into the local time of the buyer. <br> <br> <span class="tablenote"> <b> Note: </b> For the best accuracy, always include the location of where the item is be shipped in the <code> contextualLocation</code> values of the <a href="/api-docs/buy/static/api-browse.html#Headers"> <code>X-EBAY-C-ENDUSERCTX</code></a> request header.</span> */
     #[Assert\Type('string')]
-    public ?string $maxEstimatedDeliveryDate;
+    public ?string $maxEstimatedDeliveryDate = null;
 
     /** The start date of the delivery window (earliest projected delivery date). This value is returned in UTC format (yyyy-MM-ddThh:mm:ss.sssZ), which you can convert into the local time of the buyer. <br> <br><span class="tablenote"> <b> Note: </b> For the best accuracy, always include the location of where the item is be shipped in the <code> contextualLocation</code> values of the <a href="/api-docs/buy/static/api-browse.html#Headers"> <code>X-EBAY-C-ENDUSERCTX</code></a> request header.</span> */
     #[Assert\Type('string')]
-    public ?string $minEstimatedDeliveryDate;
+    public ?string $minEstimatedDeliveryDate = null;
 
     /** The number of items used when calculating the estimation information. */
     #[Assert\Type('int')]
-    public ?int $quantityUsedForEstimate;
+    public ?int $quantityUsedForEstimate = null;
 
     /** The name of the shipping provider, such as FedEx, or USPS. */
     #[Assert\Type('string')]
@@ -78,11 +78,11 @@ class ShippingOption implements EbayModelInterface
      * @var ShipToLocation|null
      */
     #[Assert\Type(ShipToLocation::class)]
-    public ?ShipToLocation $shipToLocationUsedForEstimate;
+    public ?ShipToLocation $shipToLocationUsedForEstimate = null;
 
     /** Any trademark symbol, such as &#8482; or &reg;, that needs to be shown in superscript next to the shipping service name. */
     #[Assert\Type('string')]
-    public ?string $trademarkSymbol;
+    public ?string $trademarkSymbol = null;
 
     /** The type of a shipping option, such as EXPEDITED, ONE_DAY, STANDARD, ECONOMY, PICKUP, etc. */
     #[Assert\Type('string')]

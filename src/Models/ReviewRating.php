@@ -14,16 +14,16 @@ class ReviewRating implements EbayModelInterface
 
     /** The average rating given to a product based on customer reviews. */
     #[Assert\Type('string')]
-    public ?string $averageRating;
+    public ?string $averageRating = null;
 
     /**
      * An array of containers for the product rating histograms that shows the review counts and the product rating.
      * @var RatingHistogram[]|null
      */
     #[Assert\Type('array')]
-    public ?array $ratingHistograms;
+    public ?array $ratingHistograms = null;
 
     /** The total number of reviews for the item. */
     #[Assert\Type('int')]
-    public ?int $reviewCount;
+    public ?int $reviewCount = null;
 }

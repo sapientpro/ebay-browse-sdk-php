@@ -14,5 +14,5 @@ class PickupOptionSummary implements EbayModelInterface
 
     /** This container returns the local pickup options available to the buyer. Possible values are <code>ARRANGED_LOCATION</code> and <code>STORE</code>. */
     #[Assert\Type('string')]
-    public ?string $pickupLocationType;
+    public ?string $pickupLocationType = null;
 }

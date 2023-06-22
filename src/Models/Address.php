@@ -15,11 +15,11 @@ class Address implements EbayModelInterface
 
     /** The first line of the street address. <b> Note: </b> This is conditionally returned in the <b> itemLocation</b> field. */
     #[Assert\Type('string')]
-    public ?string $addressLine1;
+    public ?string $addressLine1 = null;
 
     /** The second line of the street address. This field is not always used, but can be used for 'Suite Number' or 'Apt Number'. */
     #[Assert\Type('string')]
-    public ?string $addressLine2;
+    public ?string $addressLine2 = null;
 
     /** The city of the address. */
     #[Assert\Type('string')]
@@ -34,13 +34,13 @@ class Address implements EbayModelInterface
 
     /** The county of the address. */
     #[Assert\Type('string')]
-    public ?string $county;
+    public ?string $county = null;
 
     /** The postal code (or zip code in US) code of the address. Sellers set a postal code (or zip code in US) for items when they are listed. The postal code is used for calculating proximity searches. It is anonymized when returned in <b>itemLocation.postalCode</b> via the API. */
     #[Assert\Type('string')]
-    public ?string $postalCode;
+    public ?string $postalCode = null;
 
     /** The state or province of the address.  <b> Note: </b> This is conditionally returned in the <b> itemLocation</b> field. */
     #[Assert\Type('string')]
-    public ?string $stateOrProvince;
+    public ?string $stateOrProvince = null;
 }

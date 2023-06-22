@@ -18,9 +18,9 @@ class ShipToLocation implements EbayModelInterface
      * @var CountryCodeEnum|null
      */
     #[Assert\Type(CountryCodeEnum::class)]
-    public ?CountryCodeEnum $country;
+    public ?CountryCodeEnum $country = null;
 
     /** The zip code (postal code) for where the item is to be shipped. */
     #[Assert\Type('string')]
-    public ?string $postalCode;
+    public ?string $postalCode = null;
 }

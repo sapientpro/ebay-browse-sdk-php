@@ -17,9 +17,9 @@ class TaxJurisdiction implements EbayModelInterface
      * @var Region|null
      */
     #[Assert\Type(Region::class)]
-    public ?Region $region;
+    public ?Region $region = null;
 
     /** The identifier of the tax jurisdiction. */
     #[Assert\Type('string')]
-    public ?string $taxJurisdictionId;
+    public ?string $taxJurisdictionId = null;
 }

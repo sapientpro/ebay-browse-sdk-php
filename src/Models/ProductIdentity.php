@@ -14,9 +14,9 @@ class ProductIdentity implements EbayModelInterface
 
     /** The type of product identifier, such as UPC and EAN. */
     #[Assert\Type('string')]
-    public ?string $identifierType;
+    public ?string $identifierType = null;
 
     /** The product identifier value. */
     #[Assert\Type('string')]
-    public ?string $identifierValue;
+    public ?string $identifierValue = null;
 }

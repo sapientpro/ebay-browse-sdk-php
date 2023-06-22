@@ -14,9 +14,9 @@ class AuthenticityGuaranteeProgram implements EbayModelInterface
 
     /** An indication that the item is qualified for the Authenticity Guarantee program. */
     #[Assert\Type('string')]
-    public ?string $description;
+    public ?string $description = null;
 
     /** The URL to the Authenticity Guarantee program terms of use. */
     #[Assert\Type('string')]
-    public ?string $termsWebUrl;
+    public ?string $termsWebUrl = null;
 }

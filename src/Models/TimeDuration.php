@@ -18,9 +18,9 @@ class TimeDuration implements EbayModelInterface
      * @var TimeDurationUnitEnum|null
      */
     #[Assert\Type(TimeDurationUnitEnum::class)]
-    public ?TimeDurationUnitEnum $unit;
+    public ?TimeDurationUnitEnum $unit = null;
 
     /** Retrieves the duration of the time span (no units).The value in this field indicates the number of years, months, days, hours, or minutes in the defined period. */
     #[Assert\Type('int')]
-    public ?int $value;
+    public ?int $value = null;
 }

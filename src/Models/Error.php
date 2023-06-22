@@ -29,11 +29,11 @@ class Error implements EbayModelInterface
      * @var string[]|null
      */
     #[Assert\Type('array')]
-    public ?array $inputRefIds;
+    public ?array $inputRefIds = null;
 
     /** A detailed description of the condition that caused the error or warning, and information on what to do to correct the problem. */
     #[Assert\Type('string')]
-    public ?string $longMessage;
+    public ?string $longMessage = null;
 
     /** A description of the condition that caused the error or warning. */
     #[Assert\Type('string')]
@@ -44,16 +44,16 @@ class Error implements EbayModelInterface
      * @var string[]|null
      */
     #[Assert\Type('array')]
-    public ?array $outputRefIds;
+    public ?array $outputRefIds = null;
 
     /**
      * An array of warning and error messages that return one or more variables contextual information about the error or warning. This is often the field or value that triggered the error or warning.
      * @var ErrorParameter[]|null
      */
     #[Assert\Type('array')]
-    public ?array $parameters;
+    public ?array $parameters = null;
 
     /** The name of the subdomain in which the error or warning occurred. */
     #[Assert\Type('string')]
-    public ?string $subdomain;
+    public ?string $subdomain = null;
 }

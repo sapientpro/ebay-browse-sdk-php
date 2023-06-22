@@ -14,13 +14,13 @@ class CompatibilityProperty implements EbayModelInterface
 
     /** The name of the product attribute that as been translated to the language of the site. */
     #[Assert\Type('string')]
-    public ?string $localizedName;
+    public ?string $localizedName = null;
 
     /** The name of the product attribute, such as Make, Model, Year, etc. */
     #[Assert\Type('string')]
-    public ?string $name;
+    public ?string $name = null;
 
     /** The value for the <b> name</b> attribute, such as BMW, R1200GS, 2011, etc. */
     #[Assert\Type('string')]
-    public ?string $value;
+    public ?string $value = null;
 }

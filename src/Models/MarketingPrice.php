@@ -18,23 +18,23 @@ class MarketingPrice implements EbayModelInterface
      * @var ConvertedAmount|null
      */
     #[Assert\Type(ConvertedAmount::class)]
-    public ?ConvertedAmount $discountAmount;
+    public ?ConvertedAmount $discountAmount = null;
 
     /** This field expresses the percentage of the seller discount based on the value in the <b>  originalPrice</b> container. */
     #[Assert\Type('string')]
-    public ?string $discountPercentage;
+    public ?string $discountPercentage = null;
 
     /**
      * This container returns the monetary amount of the item without the discount.
      * @var ConvertedAmount|null
      */
     #[Assert\Type(ConvertedAmount::class)]
-    public ?ConvertedAmount $originalPrice;
+    public ?ConvertedAmount $originalPrice = null;
 
     /**
      * Indicates the pricing treatment (discount) that was applied to the price of the item. <br><br><span class="tablenote"><b>Note: </b> The pricing treatment affects the way and where the discounted price can be displayed.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/browse/types/gct:PriceTreatmentEnum'>eBay API documentation</a>
      * @var PriceTreatmentEnum|null
      */
     #[Assert\Type(PriceTreatmentEnum::class)]
-    public ?PriceTreatmentEnum $priceTreatment;
+    public ?PriceTreatmentEnum $priceTreatment = null;
 }

@@ -14,7 +14,7 @@ class Image implements EbayModelInterface
 
     /** Reserved for future use. */
     #[Assert\Type('int')]
-    public ?int $height;
+    public ?int $height = null;
 
     /** The URL of the image. */
     #[Assert\Type('string')]
@@ -22,5 +22,5 @@ class Image implements EbayModelInterface
 
     /** Reserved for future use. */
     #[Assert\Type('int')]
-    public ?int $width;
+    public ?int $width = null;
 }

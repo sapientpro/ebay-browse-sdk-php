@@ -14,9 +14,9 @@ class AuthenticityVerificationProgram implements EbayModelInterface
 
     /** An indication that the item is from a verified seller. */
     #[Assert\Type('string')]
-    public ?string $description;
+    public ?string $description = null;
 
     /** The URL to the Authenticity Verification program terms of use. */
     #[Assert\Type('string')]
-    public ?string $termsWebUrl;
+    public ?string $termsWebUrl = null;
 }

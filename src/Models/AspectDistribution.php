@@ -17,9 +17,9 @@ class AspectDistribution implements EbayModelInterface
      * @var AspectValueDistribution[]|null
      */
     #[Assert\Type('array')]
-    public ?array $aspectValueDistributions;
+    public ?array $aspectValueDistributions = null;
 
     /** The name of an aspect, such as Brand, Color, etc. */
     #[Assert\Type('string')]
-    public ?string $localizedAspectName;
+    public ?string $localizedAspectName = null;
 }

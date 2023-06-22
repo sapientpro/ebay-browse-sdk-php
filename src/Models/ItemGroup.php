@@ -17,19 +17,19 @@ class ItemGroup implements EbayModelInterface
      * @var CommonDescriptions[]|null
      */
     #[Assert\Type('array')]
-    public ?array $commonDescriptions;
+    public ?array $commonDescriptions = null;
 
     /**
      * An array of containers for all the item variation details, excluding the description.
      * @var Item[]|null
      */
     #[Assert\Type('array')]
-    public ?array $items;
+    public ?array $items = null;
 
     /**
      * An array of warning messages. These types of errors do not prevent the method from executing but should be checked.
      * @var Error[]|null
      */
     #[Assert\Type('array')]
-    public ?array $warnings;
+    public ?array $warnings = null;
 }

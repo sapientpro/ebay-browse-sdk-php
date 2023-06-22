@@ -18,9 +18,9 @@ class VatDetail implements EbayModelInterface
      * @var CountryCodeEnum|null
      */
     #[Assert\Type(CountryCodeEnum::class)]
-    public ?CountryCodeEnum $issuingCountry;
+    public ?CountryCodeEnum $issuingCountry = null;
 
     /** The seller's VAT (value added tax) ID. VAT is a tax added by some European countries. */
     #[Assert\Type('string')]
-    public ?string $vatId;
+    public ?string $vatId = null;
 }
