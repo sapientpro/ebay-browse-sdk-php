@@ -134,7 +134,6 @@ class EbayRequest
         return array_merge($defaultHeaders, $filteredParameters, $headers);
     }
 
-
     private function filterParameters(array $parameters): array
     {
         return array_filter(
