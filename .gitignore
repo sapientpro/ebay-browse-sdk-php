@@ -2,3 +2,4 @@
 .git
 vendor
 .phpunit.result.cache
+.phpunit.cache

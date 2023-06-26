@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ruleset name="SapientPro Standard">
+    <rule ref="PSR12" />
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/docs/*</exclude-pattern>
+</ruleset>

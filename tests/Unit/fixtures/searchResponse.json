@@ -1,0 +1,100 @@
+{
+  "href": "https://api.ebay.com/buy/browse/v1/item_summary/search?q=drone&limit=1&offset=0",
+  "total": 260202,
+  "next": "https://api.ebay.com/buy/browse/v1/item_summary/search?q=drone&limit=1&offset=1",
+  "limit": 1,
+  "offset": 0,
+  "itemSummaries": [
+    {
+      "itemId": "v1|1**********1|0",
+      "title": "Syma X5SW-V3 Wifi FPV RC Drone Quadcopter 2.4Ghz 6-Axis Gyro with Headless Mode",
+      "leafCategoryIds": [
+        "179697",
+        "182186"
+      ],
+      "categories": [
+        {
+          "categoryId": "179697",
+          "categoryName": "Camera Drones"
+        },
+        {
+          "categoryId": "182186",
+          "categoryName": "Other RC Model Vehicles & Kits"
+        },
+        {
+          "categoryId": "2562",
+          "categoryName": "Radio Control & Control Line"
+        }
+      ],
+      "image": {
+        "imageUrl": "https://i.ebayimg.com/thumbs/images/g/n**************a/s-***5.jpg"
+      },
+      "price": {
+        "value": "59.99",
+        "currency": "USD"
+      },
+      "itemHref": "https://api.ebay.com/buy/browse/v1/item/v1******************0",
+      "seller": {
+        "username": "m********e",
+        "feedbackPercentage": "98.6",
+        "feedbackScore": 130000
+      },
+      "marketingPrice": {
+        "originalPrice": {
+          "value": "74.99",
+          "currency": "USD"
+        },
+        "discountPercentage": "20",
+        "discountAmount": {
+          "value": "15.00",
+          "currency": "USD"
+        },
+        "priceTreatment": "LIST_PRICE"
+      },
+      "condition": "New",
+      "conditionId": "1000",
+      "thumbnailImages": [
+        {
+          "imageUrl": "https://i.ebayimg.com/images/g/n**************a/s-l***0.jpg"
+        }
+      ],
+      "shippingOptions": [
+        {
+          "shippingCostType": "FIXED",
+          "shippingCost": {
+            "value": "0.00",
+            "currency": "USD"
+          },
+          "minEstimatedDeliveryDate": "2022-11-19T08:00:00.000Z",
+          "maxEstimatedDeliveryDate": "2022-11-21T08:00:00.000Z",
+          "guaranteedDelivery": true
+        }
+      ],
+      "buyingOptions": [
+        "FIXED_PRICE",
+        "BEST_OFFER"
+      ],
+      "itemAffiliateWebUrl": "https://www.ebay.com/itm/1**********1?hash=i************d*9",
+      "itemWebUrl": "https://www.ebay.com/itm/1**********1?hash=i************d*p",
+      "itemLocation": {
+        "postalCode": "0****",
+        "country": "US"
+      },
+      "additionalImages": [
+        {
+          "imageUrl": "https://origin-galleryplus.ebayimg.com/ws/web/1**********1_2_0_1/225x225.jpg"
+        },
+        {
+          "imageUrl": "https://origin-galleryplus.ebayimg.com/ws/web/1**********1_3_0_1/225x225.jpg"
+        }
+      ],
+      "adultOnly": false,
+      "legacyItemId": "1**********1",
+      "availableCoupons": false,
+      "itemCreationDate": "2022-12-25T07:14:44.000Z",
+      "topRatedBuyingExperience": true,
+      "priorityListing": true,
+      "listingMarketplaceId": "EBAY_US"
+    }
+  ]
+}
