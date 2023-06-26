@@ -64,12 +64,13 @@ class EbayRequest
     ): Request {
         $query = $this->processParameters($queryParameters);
         $headers = $this->processHeaders(HttpMethodEnum::PUT, $headerParameters, $body);
+        $serializedBody = $body ? $this->serializer->serialize($body) : null;
 
         return new Request(
             HttpMethodEnum::PUT->value,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $this->serializer->serialize($body)
+            $serializedBody
         );
     }
 
