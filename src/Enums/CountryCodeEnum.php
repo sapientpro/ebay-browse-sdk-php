@@ -742,6 +742,9 @@ enum CountryCodeEnum: string
     /** Mayotte */
     case YT = 'YT';
 
+    /** Yugoslavia */
+    case YU = 'YU';
+
     /** South Africa */
     case ZA = 'ZA';
 
