@@ -96,6 +96,10 @@ class Item implements EbayModelInterface
     #[Assert\Type('string')]
     public ?string $conditionDescription = null;
 
+    /** @var ConditionDescriptor[]|null This array is used by the seller to provide additional information about the condition of an item in a structured format. Condition descriptors are name-value attributes that indicate details about a particular condition of an item. */
+    #[Assert\Type('array')]
+    public ?array $conditionDescriptors = null;
+
     /** The identifier of the condition of the item. For example, 1000 is the identifier for NEW. For a list of condition names and IDs, see <a href="https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html " target="_blank">Item Condition IDs and Names</a>. <br><br>Code so that your app gracefully handles any future changes to this list. */
     #[Assert\Type('string')]
     public ?string $conditionId = null;
@@ -162,6 +166,10 @@ class Item implements EbayModelInterface
      */
     #[Assert\Type(Image::class)]
     public Image $image;
+
+    /** A value of true indicates that the seller requires immediate payment from the buyer when purchasing an item. */
+    #[Assert\Type('bool')]
+    public bool $immediatePay;
 
     /** The ePID (eBay Product ID of a product from the eBay product catalog) for the item, which has been programmatically determined by eBay using the item's title, aspects, and other data. <br><br>If the seller provided an ePID for the item, the seller's value is returned in the <b> epid</b> field. <br><br><span class="tablenote"><b> Note: </b> This field is returned only for authorized Partners.</span> */
     #[Assert\Type('string')]

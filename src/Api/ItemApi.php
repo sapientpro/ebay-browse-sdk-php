@@ -81,12 +81,14 @@ class ItemApi implements EbayApiInterface
         MarketplaceIdEnum $xEbayCMarketplaceId,
         string $fieldgroups = null,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): ?Item {
         $response = $this->getItemWithHttpInfo(
             $itemId,
             $xEbayCMarketplaceId,
             $fieldgroups,
             $xEbayCEnduserctx,
+            $quantityForShippingEstimate
         );
 
         return $response['data'] ?? null;
@@ -108,12 +110,14 @@ class ItemApi implements EbayApiInterface
         MarketplaceIdEnum $xEbayCMarketplaceId,
         string $fieldgroups = null,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): array {
         $request = $this->getItemRequest(
             $itemId,
             $xEbayCMarketplaceId,
             $fieldgroups,
             $xEbayCEnduserctx,
+            $quantityForShippingEstimate
         );
 
         return $this->ebayClient->sendRequest($request, returnType: Item::class);
@@ -134,6 +138,7 @@ class ItemApi implements EbayApiInterface
         MarketplaceIdEnum $xEbayCMarketplaceId,
         string $fieldgroups = null,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): Request {
         $resourcePath = '/item/{item_id}';
         $resourcePath = str_replace(
@@ -142,7 +147,10 @@ class ItemApi implements EbayApiInterface
             $resourcePath
         );
 
-        $queryParameters['fieldgroups'] = $fieldgroups;
+        $queryParameters = [
+            'fieldgroups' => $fieldgroups,
+            'quantity_for_shipping_estimate' => $quantityForShippingEstimate,
+        ];
 
         $headerParameters = [
             'X-EBAY-C-ENDUSERCTX' => $xEbayCEnduserctx,
@@ -176,6 +184,7 @@ class ItemApi implements EbayApiInterface
         string $legacyVariationId = null,
         string $legacyVariationSku = null,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): ?Item {
         $response = $this->getItemByLegacyIdWithHttpInfo(
             $legacyItemId,
@@ -184,6 +193,7 @@ class ItemApi implements EbayApiInterface
             $legacyVariationId,
             $legacyVariationSku,
             $xEbayCEnduserctx,
+            $quantityForShippingEstimate
         );
 
         return $response['data'] ?? null;
@@ -208,6 +218,7 @@ class ItemApi implements EbayApiInterface
         string $legacyVariationId = null,
         string $legacyVariationSku = null,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): array {
         $request = $this->getItemByLegacyIdRequest(
             $legacyItemId,
@@ -216,6 +227,7 @@ class ItemApi implements EbayApiInterface
             $legacyVariationId,
             $legacyVariationSku,
             $xEbayCEnduserctx,
+            $quantityForShippingEstimate
         );
 
         return $this->ebayClient->sendRequest($request, returnType: Item::class);
@@ -240,6 +252,7 @@ class ItemApi implements EbayApiInterface
         string $legacyVariationId = null,
         string $legacyVariationSku = null,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): Request {
         $resourcePath = '/item/get_item_by_legacy_id';
 
@@ -248,6 +261,7 @@ class ItemApi implements EbayApiInterface
             'legacy_item_id' => $legacyItemId,
             'legacy_variation_id' => $legacyVariationId,
             'legacy_variation_sku' => $legacyVariationSku,
+            'quantity_for_shipping_estimate' => $quantityForShippingEstimate,
         ];
 
         $headerParameters = [
@@ -278,12 +292,14 @@ class ItemApi implements EbayApiInterface
         string $itemIds = null,
         string $itemGroupIds = null,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): ?Items {
         $response = $this->getItemsWithHttpInfo(
             $xEbayCMarketplaceId,
             $itemIds,
             $itemGroupIds,
             $xEbayCEnduserctx,
+            $quantityForShippingEstimate
         );
 
         return $response['data'] ?? null;
@@ -304,6 +320,7 @@ class ItemApi implements EbayApiInterface
         string $itemIds = null,
         string $itemGroupIds = null,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): array {
         $returnType = Items::class;
 
@@ -312,6 +329,7 @@ class ItemApi implements EbayApiInterface
             $itemIds,
             $itemGroupIds,
             $xEbayCEnduserctx,
+            $quantityForShippingEstimate
         );
 
         return $this->ebayClient->sendRequest($request, $returnType);
@@ -331,12 +349,14 @@ class ItemApi implements EbayApiInterface
         string $itemIds = null,
         string $itemGroupIds = null,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): Request {
         $resourcePath = '/item/';
 
         $queryParameters = [
             'item_ids' => $itemIds,
             'item_group_ids' => $itemGroupIds,
+            'quantity_for_shipping_estimate' => $quantityForShippingEstimate,
         ];
 
         $headerParameters = [
@@ -365,11 +385,13 @@ class ItemApi implements EbayApiInterface
         string $itemGroupId,
         MarketplaceIdEnum $xEbayCMarketplaceId,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): ?ItemGroup {
         $response = $this->getItemsByItemGroupWithHttpInfo(
             $itemGroupId,
             $xEbayCMarketplaceId,
             $xEbayCEnduserctx,
+            $quantityForShippingEstimate
         );
 
         return $response['data'] ?? null;
@@ -389,6 +411,7 @@ class ItemApi implements EbayApiInterface
         string $itemGroupId,
         MarketplaceIdEnum $xEbayCMarketplaceId,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): array {
         $returnType = ItemGroup::class;
 
@@ -396,6 +419,7 @@ class ItemApi implements EbayApiInterface
             $itemGroupId,
             $xEbayCMarketplaceId,
             $xEbayCEnduserctx,
+            $quantityForShippingEstimate
         );
 
         return $this->ebayClient->sendRequest($request, $returnType);
@@ -413,10 +437,14 @@ class ItemApi implements EbayApiInterface
         string $itemGroupId,
         MarketplaceIdEnum $xEbayCMarketplaceId,
         string $xEbayCEnduserctx = null,
+        int $quantityForShippingEstimate = null,
     ): Request {
         $resourcePath = '/item/get_items_by_item_group';
 
-        $queryParameters['item_group_id'] = $itemGroupId;
+        $queryParameters = [
+            'item_group_id' => $itemGroupId,
+            'quantity_for_shipping_estimate' => $quantityForShippingEstimate,
+        ];
 
         $headerParameters = [
             'X-EBAY-C-ENDUSERCTX' => $xEbayCEnduserctx,
