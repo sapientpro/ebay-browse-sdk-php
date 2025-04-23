@@ -129,6 +129,13 @@ class ItemSummary implements EbayModelInterface
     #[Assert\Type(ItemLocationImpl::class)]
     public ?ItemLocationImpl $itemLocation = null;
 
+    /**
+     * The date and time when the listing was first made available. This date will be retained if an item is relisted. This value is returned in UTC format (yyyy-MM-ddThh:mm:ss.sssZ), which you can convert into the local time of the buyer.
+     * This timestamp is used to sort the response when the sort=newlyListed parameter is used.
+     */
+    #[Assert\Type('string')]
+    public ?string $itemOriginDate = null;
+
     /** The URL to the View Item page of the item.  This enables you to include a "Report Item on eBay" hyperlink that takes the buyer to the View Item page on eBay. From there they can report any issues regarding this item to eBay. */
     #[Assert\Type('string')]
     public string $itemWebUrl;
