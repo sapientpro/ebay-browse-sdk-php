@@ -5,6 +5,9 @@ namespace SapientPro\EbayBrowseSDK\Models;
 use SapientPro\EbayBrowseSDK\Models\Concerns\FillsModel;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * This type contains seller provided product safety pictograms and statements for the listing.
+ */
 class ProductSafetyLabels implements EbayModelInterface
 {
     use FillsModel;

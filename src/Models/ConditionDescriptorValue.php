@@ -5,6 +5,9 @@ namespace SapientPro\EbayBrowseSDK\Models;
 use SapientPro\EbayBrowseSDK\Models\Concerns\FillsModel;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * This type displays the value(s) associated with the specified condition descriptor name, as well as any additional information about a condition descriptor.
+ */
 class ConditionDescriptorValue implements EbayModelInterface
 {
     use FillsModel;
