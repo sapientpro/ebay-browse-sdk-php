@@ -30,7 +30,7 @@ class Configuration
      *
      * @var string
      */
-    protected string $userAgent = 'SapientPro/v1.18.4/php';
+    protected string $userAgent = 'SapientPro/v1.20.2/php';
 
     /**
      * Gets the default configuration instance
