@@ -144,6 +144,7 @@ class ItemSummaryApiTest extends TestCase
                     ],
                     'itemAffiliateWebUrl' => 'https://www.ebay.com/itm/1**********1?hash=i************d*9',
                     'itemWebUrl' => 'https://www.ebay.com/itm/1**********1?hash=i************d*p',
+                    'itemOriginDate' => '2025-04-23T11:32:02Z',
                     'itemLocation' => ItemLocationImpl::fromArray([
                         'postalCode' => '0****',
                         'country' => CountryCodeEnum::US

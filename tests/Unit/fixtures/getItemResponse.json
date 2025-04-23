@@ -20,12 +20,62 @@
   "image": {
     "imageUrl": "https://i.ebayimg.com/images/g/Z**********l/s-l1600.jpg"
   },
+  "immediatePay": false,
   "brand": "test",
   "seller": {
     "username": "c**********r",
+    "userId": "user123456",
     "feedbackPercentage": "98.6",
-    "feedbackScore": 16632
+    "feedbackScore": 16632,
+    "sellerLegalInfo":
+    {
+      "email" : "string@test.com",
+      "economicOperator" :
+      {
+        "companyName" : "Test",
+        "email" : "test@company.com"
+      }
+    }
   },
+  "conditionDescriptors": [
+    {
+      "name": "Descriptor",
+      "values": [
+        {
+          "content": "New"
+        }
+      ]
+    }
+  ],
+  "manufacturer": {
+    "companyName" : "Test",
+    "contactUrl" : "company-test.org",
+    "email" : "company@test.org"
+  },
+  "productSafetyLabels": {
+    "pictograms": [
+      {
+        "pictogramDescription": "PDescription",
+        "pictogramId": "5sw4w"
+      }
+    ],
+    "statements": [
+      {
+        "statementDescription": "SDescription",
+        "statementId": "5sw4w1"
+      }
+    ]
+  },
+  "responsiblePersons" : [
+    {
+      "companyName" : "Test",
+      "contactUrl" : "company-test.org",
+      "email" : "company@test.org",
+      "types" : [
+        "EU_RESPONSIBLE_PERSON"
+      ]
+    }
+  ],
   "mpn": "DCA800SSK2C",
   "estimatedAvailabilities": [
     {
@@ -34,6 +84,7 @@
       ],
       "estimatedAvailabilityStatus": "IN_STOCK",
       "estimatedAvailableQuantity": 2,
+      "estimatedRemainingQuantity": 2,
       "estimatedSoldQuantity": 0
     }
   ],
