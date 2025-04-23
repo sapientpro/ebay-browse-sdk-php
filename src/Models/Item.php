@@ -225,6 +225,13 @@ class Item implements EbayModelInterface
     public ?int $lotSize = null;
 
     /**
+     * @var CompanyAddress|null
+     * Contact information for the manufacturer of the product.
+     */
+    #[Assert\Type(CompanyAddress::class)]
+    public ?CompanyAddress $manufacturer = null;
+
+    /**
      * The original price and the discount amount and percentage.
      * @var MarketingPrice|null
      */
@@ -301,6 +308,14 @@ class Item implements EbayModelInterface
     public ?string $productFicheWebUrl = null;
 
     /**
+     * @var ProductSafetyLabels|null
+     * This container provides product safety labels which were provided by the seller, for the listing.
+     * The getProductSafetyLabels method of the Sell Metadata API can be used to retrieve the full set of available Product Safety pictogram labels and safety statements.
+     */
+    #[Assert\Type(ProductSafetyLabels::class)]
+    public ?ProductSafetyLabels $productSafetyLabels = null;
+
+    /**
      * An array of the qualified programs available for the item, or for the item group when returned for the <b>getItemsByItemGroup</b> method, such as EBAY_PLUS, AUTHENTICITY_GUARANTEE, and AUTHENTICITY_VERIFICATION.<br><br><span class="tablenote"><b>Note: </b>The <code>AUTHENTICITY_GUARANTEE</code> value being returned by the <b>getItemsByItemGroup</b> method indicates that at least one item in the item group supports this program, but doesn't guarantee that the program is available to all items in the item group. To verify if the Authenticity Program is indeed available for the item that you are interested in, grab the <b>items.itemId</b> value for that item and use the <b>getItem</b> method. This method will return specific details on that particular item, including whether or not the Authenticity Guarantee Program is available for the item. Look for the <b>qualifiedPrograms</b> array and <b>authenticityGuarantee</b> container in the <b>getItem</b> response for this information.</span><br><br>eBay Plus is a premium account option for buyers, which provides benefits such as fast free domestic shipping and free returns on selected items. Top-Rated eBay sellers must opt in to eBay Plus to be able to offer the program on qualifying listings. Sellers must commit to next-day delivery of those items.<br><br><span class="tablenote"><b>Note: </b> eBay Plus is available only to buyers in Germany, Austria, and Australia marketplaces.</span><br><br>The eBay <a href="https://pages.ebay.com/authenticity-guarantee/ " target="_blank">Authenticity Guarantee</a> program enables third-party authenticators to perform authentication verification inspections on items such as watches and sneakers.
      * @var string[]|null
      */
@@ -318,6 +333,10 @@ class Item implements EbayModelInterface
     /** This indicates if the reserve price of the item has been met. A reserve price is set by the seller and is the minimum amount the seller is willing to sell the item for. <p>If the highest bid is not equal to or higher than the reserve price when the auction ends, the listing ends and the item is not sold.</p> <p><b> Note: </b>This is returned only for auctions that have a reserve price.</p> */
     #[Assert\Type('bool')]
     public ?bool $reservePriceMet = null;
+
+    /** @var ResponsiblePerson[]|null This array provides information about one or more EU-based Responsible Persons or entities associated with the listing. */
+    #[Assert\Type('array')]
+    public ?array $responsiblePersons = null;
 
     /**
      * The container that returns an overview of the seller's return policy.
