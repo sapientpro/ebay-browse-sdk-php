@@ -173,8 +173,15 @@ An array of the seller's VAT (value added tax) IDs and the issuing country. VAT 
 public ?array $vatDetails
 ```
 
+***
 
+### economicOperator
 
+Provides required information about the manufacturer and/or supplier of the item.
+
+```php
+public ?EconomicOperator $economicOperator
+```
 
 
 

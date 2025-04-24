@@ -250,6 +250,16 @@ public ?string $conditionDescription
 
 
 
+***
+
+### conditionDescriptors
+
+This array is used by the seller to provide additional information about the condition of an item in a structured format. Condition descriptors are name-value attributes that indicate details about a particular condition of an item.
+
+```php
+public ?array $conditionDescriptors // ConditionDescriptor[]
+```
+
 
 
 
@@ -447,6 +457,17 @@ public \SapientPro\EbayBrowseSDK\Models\Image $image
 
 
 
+***
+
+### immediatePay
+
+A value of true indicates that the seller requires immediate payment from the buyer when purchasing an item. <br><br>For more information, see <a href="https://www.ebay.com/help/buying/checkout/checkout-process?id=4041">Checkout process</a>.
+
+```php
+public bool $immediatePay
+```
+
+
 
 ***
 
@@ -608,7 +629,15 @@ The number of items in a lot. In other words, a lot size is the number of items 
 public ?int $lotSize
 ```
 
+***
 
+### manufacturer
+
+Contact information for the manufacturer of the product.
+
+```php
+public ?CompanyAddress $manufacturer
+```
 
 
 
@@ -803,10 +832,15 @@ The URL of a page containing the manufacturer's specification of this item, whic
 public ?string $productFicheWebUrl
 ```
 
+***
 
+### productSafetyLabels
 
+This container provides product safety labels which were provided by the seller, for the listing. The getProductSafetyLabels method of the Sell Metadata API can be used to retrieve the full set of available Product Safety pictogram labels and safety statements.
 
-
+```php
+public ?ProductSafetyLabels $productSafetyLabels
+```
 
 ***
 
@@ -863,10 +897,15 @@ This indicates if the reserve price of the item has been met. A reserve price is
 public ?bool $reservePriceMet
 ```
 
+***
 
+### responsiblePersons
 
+This array provides information about one or more EU-based Responsible Persons or entities associated with the listing.
 
-
+```php
+public ?array $responsiblePersons // ResponsiblePerson[]
+```
 
 ***
 

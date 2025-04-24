@@ -88,6 +88,20 @@ public ?int $estimatedAvailableQuantity
 
 
 
+
+***
+
+### estimatedRemainingQuantity
+
+The estimated number of this item that are available for purchase. Because the quantity of an item can change several times within a second, it is impossible to return the exact quantity. So instead of returning quantity, the estimated availability of the item is returned.
+
+```php
+public ?int $estimatedRemainingQuantity
+```
+
+
+
+
 ***
 
 ### estimatedSoldQuantity
