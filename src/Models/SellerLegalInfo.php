@@ -62,6 +62,13 @@ class SellerLegalInfo implements EbayModelInterface
     #[Assert\Type('array')]
     public ?array $vatDetails = null;
 
+    /**
+     * @var EconomicOperator|null
+     * Provides required information about the manufacturer and/or supplier of the item.
+     */
+    #[Assert\Type(EconomicOperator::class)]
+    public ?EconomicOperator $economicOperator = null;
+
     /** The Waste Electrical and Electronic Equipment (WEEE) registration number required for any seller to place electrical and electronic equipment on the market in Germany. This manufacturer number is assigned to the first distributors of electrical and electronic equipment and comprises a country code and an 8-digit sequence of digits (e.g. “WEEE Reg. No. DE 12345678”). Occurrence: Conditional */
     #[Assert\Type('string')]
     public ?string $weeeNumber = null;

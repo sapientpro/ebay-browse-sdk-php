@@ -17,6 +17,7 @@ use SapientPro\EbayBrowseSDK\Enums\PaymentMethodBrandEnum;
 use SapientPro\EbayBrowseSDK\Enums\PaymentMethodTypeEnum;
 use SapientPro\EbayBrowseSDK\Enums\RefundMethodEnum;
 use SapientPro\EbayBrowseSDK\Enums\RegionTypeEnum;
+use SapientPro\EbayBrowseSDK\Enums\ResponsiblePersonTypeEnum;
 use SapientPro\EbayBrowseSDK\Enums\ReturnMethodEnum;
 use SapientPro\EbayBrowseSDK\Enums\ReturnShippingCostPayerEnum;
 use SapientPro\EbayBrowseSDK\Enums\TimeDurationUnitEnum;
@@ -24,10 +25,14 @@ use SapientPro\EbayBrowseSDK\Enums\ValueTypeEnum;
 use SapientPro\EbayBrowseSDK\Models\Address;
 use SapientPro\EbayBrowseSDK\Models\AttributeNameValue;
 use SapientPro\EbayBrowseSDK\Models\CommonDescriptions;
+use SapientPro\EbayBrowseSDK\Models\CompanyAddress;
 use SapientPro\EbayBrowseSDK\Models\CompatibilityPayload;
 use SapientPro\EbayBrowseSDK\Models\CompatibilityResponse;
+use SapientPro\EbayBrowseSDK\Models\ConditionDescriptor;
+use SapientPro\EbayBrowseSDK\Models\ConditionDescriptorValue;
 use SapientPro\EbayBrowseSDK\Models\ConvertedAmount;
 use SapientPro\EbayBrowseSDK\Models\CoreItem;
+use SapientPro\EbayBrowseSDK\Models\EconomicOperator;
 use SapientPro\EbayBrowseSDK\Models\EstimatedAvailability;
 use SapientPro\EbayBrowseSDK\Models\Image;
 use SapientPro\EbayBrowseSDK\Models\Item;
@@ -37,10 +42,15 @@ use SapientPro\EbayBrowseSDK\Models\ItemReturnTerms;
 use SapientPro\EbayBrowseSDK\Models\Items;
 use SapientPro\EbayBrowseSDK\Models\PaymentMethod;
 use SapientPro\EbayBrowseSDK\Models\PaymentMethodBrand;
+use SapientPro\EbayBrowseSDK\Models\ProductSafetyLabelPictogram;
+use SapientPro\EbayBrowseSDK\Models\ProductSafetyLabels;
+use SapientPro\EbayBrowseSDK\Models\ProductSafetyLabelStatement;
 use SapientPro\EbayBrowseSDK\Models\RatingHistogram;
 use SapientPro\EbayBrowseSDK\Models\Region;
+use SapientPro\EbayBrowseSDK\Models\ResponsiblePerson;
 use SapientPro\EbayBrowseSDK\Models\ReviewRating;
 use SapientPro\EbayBrowseSDK\Models\SellerDetail;
+use SapientPro\EbayBrowseSDK\Models\SellerLegalInfo;
 use SapientPro\EbayBrowseSDK\Models\ShippingOption;
 use SapientPro\EbayBrowseSDK\Models\ShipToLocation;
 use SapientPro\EbayBrowseSDK\Models\ShipToLocations;
@@ -187,23 +197,72 @@ JSON;
             'image' => Image::fromArray([
                 'imageUrl' => 'https://i.ebayimg.com/images/g/Z**********l/s-l1600.jpg',
             ]),
+            'immediatePay' => false,
             'seller' => SellerDetail::fromArray([
                 'username' => 'c**********r',
+                'userId' => 'user123456',
                 'feedbackPercentage' => '98.6',
                 'feedbackScore' => 16632,
+                'sellerLegalInfo' => SellerLegalInfo::fromArray([
+                    'email' => 'string@test.com',
+                    'economicOperator' => EconomicOperator::fromArray([
+                        'companyName' => 'Test',
+                        'email' => 'test@company.com'
+                    ])
+                ])
             ]),
             'brand' => 'test',
             'mpn' => 'DCA800SSK2C',
+            'manufacturer' => CompanyAddress::fromArray([
+                'companyName' => 'Test',
+                'contactUrl' => 'company-test.org',
+                'email' => 'company@test.org'
+            ]),
             'estimatedAvailabilities' => [
                 EstimatedAvailability::fromArray([
                     'estimatedAvailabilityStatus' => AvailabilityStatusEnum::IN_STOCK,
                     'estimatedAvailableQuantity' => 2,
+                    'estimatedRemainingQuantity' => 2,
                     'estimatedSoldQuantity' => 0,
                     'deliveryOptions' => [
                         DeliveryOptionsEnum::SHIP_TO_HOME
                     ]
                 ]),
             ],
+            'conditionDescriptors' => [
+                ConditionDescriptor::fromArray([
+                    'name' => 'Descriptor',
+                    'values' => [
+                        ConditionDescriptorValue::fromArray([
+                            'content' => 'New'
+                        ])
+                    ]
+                ])
+            ],
+            'responsiblePersons' => [
+                ResponsiblePerson::fromArray([
+                    'companyName' => 'Test',
+                    'contactUrl' => 'company-test.org',
+                    'email' => 'company@test.org',
+                    'types' => [
+                        ResponsiblePersonTypeEnum::EU_RESPONSIBLE_PERSON,
+                    ],
+                ])
+            ],
+            'productSafetyLabels' => ProductSafetyLabels::fromArray([
+                'pictograms' => [
+                    ProductSafetyLabelPictogram::fromArray([
+                        'pictogramDescription' => 'PDescription',
+                        'pictogramId' => '5sw4w'
+                    ])
+                ],
+                'statements' => [
+                    ProductSafetyLabelStatement::fromArray([
+                        'statementDescription' => 'SDescription',
+                        'statementId' => '5sw4w1'
+                    ])
+                ]
+            ]),
             'shippingOptions' => [
                 ShippingOption::fromArray([
                     'shippingServiceCode' => 'Economy Shipping',

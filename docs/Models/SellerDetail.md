@@ -83,6 +83,16 @@ The user name created by the seller for use on eBay.
 public string $username
 ```
 
+***
+
+### userId
+
+The unique identifier of an eBay user across all eBay sites. This value does not change, even when a user changes their username.
+
+```php
+public ?string $userId = null;
+```
+
 
 
 

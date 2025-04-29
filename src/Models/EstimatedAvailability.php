@@ -44,6 +44,10 @@ class EstimatedAvailability implements EbayModelInterface
     #[Assert\Type('int')]
     public ?int $estimatedAvailableQuantity = null;
 
+    /** The estimated number of this item that are available for purchase. Because the quantity of an item can change several times within a second, it is impossible to return the exact quantity. So instead of returning quantity, the estimated availability of the item is returned. */
+    #[Assert\Type('int')]
+    public ?int $estimatedRemainingQuantity = null;
+
     /** The estimated number of this item that have been sold. */
     #[Assert\Type('int')]
     public ?int $estimatedSoldQuantity = null;

@@ -1,7 +1,7 @@
 # Ebay Browse API SDK for PHP
 Using the Browse API, you can create a rich selection of items for your buyers to browse with keyword and category searches.
 
-- API version: v1.18.4
+- API version: v1.20.2
 
 ## Requirements
 

@@ -34,4 +34,8 @@ class SellerDetail implements EbayModelInterface
     /** The user name created by the seller for use on eBay. */
     #[Assert\Type('string')]
     public string $username;
+
+    /** The unique identifier of an eBay user across all eBay sites. This value does not change, even when a user changes their username. */
+    #[Assert\Type('string')]
+    public ?string $userId = null;
 }

@@ -96,6 +96,10 @@ class Item implements EbayModelInterface
     #[Assert\Type('string')]
     public ?string $conditionDescription = null;
 
+    /** @var ConditionDescriptor[]|null This array is used by the seller to provide additional information about the condition of an item in a structured format. Condition descriptors are name-value attributes that indicate details about a particular condition of an item. */
+    #[Assert\Type('array')]
+    public ?array $conditionDescriptors = null;
+
     /** The identifier of the condition of the item. For example, 1000 is the identifier for NEW. For a list of condition names and IDs, see <a href="https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html " target="_blank">Item Condition IDs and Names</a>. <br><br>Code so that your app gracefully handles any future changes to this list. */
     #[Assert\Type('string')]
     public ?string $conditionId = null;
@@ -163,6 +167,10 @@ class Item implements EbayModelInterface
     #[Assert\Type(Image::class)]
     public Image $image;
 
+    /** A value of true indicates that the seller requires immediate payment from the buyer when purchasing an item. */
+    #[Assert\Type('bool')]
+    public bool $immediatePay;
+
     /** The ePID (eBay Product ID of a product from the eBay product catalog) for the item, which has been programmatically determined by eBay using the item's title, aspects, and other data. <br><br>If the seller provided an ePID for the item, the seller's value is returned in the <b> epid</b> field. <br><br><span class="tablenote"><b> Note: </b> This field is returned only for authorized Partners.</span> */
     #[Assert\Type('string')]
     public ?string $inferredEpid = null;
@@ -215,6 +223,13 @@ class Item implements EbayModelInterface
     /** The number of items in a lot. In other words, a lot size is the number of items that are being sold together.  <br><br>A lot is a set of two or more items included in a single listing that must be purchased together in a single order line item. All the items in the lot are the same but there can be multiple items in a single lot,  such as the package of batteries shown in the example below.   <br><br><table border="1"> <tr> <tr>  <th>Item</th>  <th>Lot Definition</th> <th>Lot Size</th></tr>  <tr>  <td>A package of 24 AA batteries</td>  <td>A box of 10 packages</td>  <td>10  </td> </tr>  <tr>  <td>A P235/75-15 Goodyear tire </td>  <td>4 tires  </td>  <td>4  </td> </tr> <tr> <td>Fashion Jewelry Rings  </td> <td>Package of 100 assorted rings  </td> <td>100 </td> </tr></table>  <br><br><span class="tablenote"><b>Note: </b>  Lots are not supported in all categories.  </span> */
     #[Assert\Type('int')]
     public ?int $lotSize = null;
+
+    /**
+     * @var CompanyAddress|null
+     * Contact information for the manufacturer of the product.
+     */
+    #[Assert\Type(CompanyAddress::class)]
+    public ?CompanyAddress $manufacturer = null;
 
     /**
      * The original price and the discount amount and percentage.
@@ -293,6 +308,14 @@ class Item implements EbayModelInterface
     public ?string $productFicheWebUrl = null;
 
     /**
+     * @var ProductSafetyLabels|null
+     * This container provides product safety labels which were provided by the seller, for the listing.
+     * The getProductSafetyLabels method of the Sell Metadata API can be used to retrieve the full set of available Product Safety pictogram labels and safety statements.
+     */
+    #[Assert\Type(ProductSafetyLabels::class)]
+    public ?ProductSafetyLabels $productSafetyLabels = null;
+
+    /**
      * An array of the qualified programs available for the item, or for the item group when returned for the <b>getItemsByItemGroup</b> method, such as EBAY_PLUS, AUTHENTICITY_GUARANTEE, and AUTHENTICITY_VERIFICATION.<br><br><span class="tablenote"><b>Note: </b>The <code>AUTHENTICITY_GUARANTEE</code> value being returned by the <b>getItemsByItemGroup</b> method indicates that at least one item in the item group supports this program, but doesn't guarantee that the program is available to all items in the item group. To verify if the Authenticity Program is indeed available for the item that you are interested in, grab the <b>items.itemId</b> value for that item and use the <b>getItem</b> method. This method will return specific details on that particular item, including whether or not the Authenticity Guarantee Program is available for the item. Look for the <b>qualifiedPrograms</b> array and <b>authenticityGuarantee</b> container in the <b>getItem</b> response for this information.</span><br><br>eBay Plus is a premium account option for buyers, which provides benefits such as fast free domestic shipping and free returns on selected items. Top-Rated eBay sellers must opt in to eBay Plus to be able to offer the program on qualifying listings. Sellers must commit to next-day delivery of those items.<br><br><span class="tablenote"><b>Note: </b> eBay Plus is available only to buyers in Germany, Austria, and Australia marketplaces.</span><br><br>The eBay <a href="https://pages.ebay.com/authenticity-guarantee/ " target="_blank">Authenticity Guarantee</a> program enables third-party authenticators to perform authentication verification inspections on items such as watches and sneakers.
      * @var string[]|null
      */
@@ -310,6 +333,10 @@ class Item implements EbayModelInterface
     /** This indicates if the reserve price of the item has been met. A reserve price is set by the seller and is the minimum amount the seller is willing to sell the item for. <p>If the highest bid is not equal to or higher than the reserve price when the auction ends, the listing ends and the item is not sold.</p> <p><b> Note: </b>This is returned only for auctions that have a reserve price.</p> */
     #[Assert\Type('bool')]
     public ?bool $reservePriceMet = null;
+
+    /** @var ResponsiblePerson[]|null This array provides information about one or more EU-based Responsible Persons or entities associated with the listing. */
+    #[Assert\Type('array')]
+    public ?array $responsiblePersons = null;
 
     /**
      * The container that returns an overview of the seller's return policy.
