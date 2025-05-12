@@ -221,7 +221,7 @@ class ItemSummaryApi implements EbayApiInterface
         string $sort = null,
         string $xEbayCEnduserctx = null,
     ): Request {
-        $resourcePath = '/item_summary/search';
+        $resourcePath = '/buy/browse/v1/item_summary/search';
 
         $queryParameters = [
             'aspect_filter' => $aspectFilter,
@@ -379,7 +379,7 @@ class ItemSummaryApi implements EbayApiInterface
         string $sort = null,
         string $xEbayCEnduserctx = null,
     ): Request {
-        $resourcePath = '/item_summary/search_by_image';
+        $resourcePath = '/buy/browse/v1/item_summary/search_by_image';
 
         $queryParameters = [
             'aspect_filter' => $aspectFilter,

@@ -140,7 +140,7 @@ class ItemApi implements EbayApiInterface
         string $xEbayCEnduserctx = null,
         int $quantityForShippingEstimate = null,
     ): Request {
-        $resourcePath = '/item/{item_id}';
+        $resourcePath = '/buy/browse/v1/item/{item_id}';
         $resourcePath = str_replace(
             '{' . 'item_id' . '}',
             Serializer::toPathValue($itemId),
@@ -254,7 +254,7 @@ class ItemApi implements EbayApiInterface
         string $xEbayCEnduserctx = null,
         int $quantityForShippingEstimate = null,
     ): Request {
-        $resourcePath = '/item/get_item_by_legacy_id';
+        $resourcePath = '/buy/browse/v1/item/get_item_by_legacy_id';
 
         $queryParameters = [
             'fieldgroups' => $fieldgroups,
@@ -351,7 +351,7 @@ class ItemApi implements EbayApiInterface
         string $xEbayCEnduserctx = null,
         int $quantityForShippingEstimate = null,
     ): Request {
-        $resourcePath = '/item/';
+        $resourcePath = '/buy/browse/v1/item/';
 
         $queryParameters = [
             'item_ids' => $itemIds,
@@ -439,7 +439,7 @@ class ItemApi implements EbayApiInterface
         string $xEbayCEnduserctx = null,
         int $quantityForShippingEstimate = null,
     ): Request {
-        $resourcePath = '/item/get_items_by_item_group';
+        $resourcePath = '/buy/browse/v1/item/get_items_by_item_group';
 
         $queryParameters = [
             'item_group_id' => $itemGroupId,
