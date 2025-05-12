@@ -2,6 +2,8 @@
 
 namespace SapientPro\EbayBrowseSDK;
 
+use SapientPro\EbayBrowseSDK\Enums\ApiEnvironmentType;
+
 /**
  * @package  SapientPro\EbayBrowseSDK
  * @author   SapientPro
@@ -19,11 +21,18 @@ class Configuration
     protected string $accessToken = '';
 
     /**
+     * The environment
+     *
+     * @var string
+     */
+    protected string $environment = ApiEnvironmentType::SANDBOX->value;
+
+    /**
      * The host
      *
      * @var string
      */
-    protected string $host = 'https://api.ebay.com/buy/browse/v1';
+    protected string $host = ApiEnvironmentType::SANDBOX_ENDPOINT->value;
 
     /**
      * User agent of the HTTP request, set to "SapientPro" by default
@@ -89,7 +98,7 @@ class Configuration
      */
     public function getHost(): string
     {
-        return $this->host;
+        return ($this->environment == ApiEnvironmentType::PRODUCTION) ? ApiEnvironmentType::PRODUCTION_ENDPOINT->value : ApiEnvironmentType::SANDBOX_ENDPOINT->value;
     }
 
     /**
@@ -126,6 +135,31 @@ class Configuration
     public function setUserAgent(string $userAgent): self
     {
         $this->userAgent = $userAgent;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets the environment of the api client
+     *
+     * @return string environment
+     */
+    public function getApiEnvironment(): string
+    {
+        return $this->environment;
+    }
+
+    /**
+     * Sets the environment of the api client
+     *
+     * @param  string  $environment  the environment of the api client
+     *
+     * @return $this
+     */
+    public function setApiEnvironment(string $environment): self
+    {
+        $this->environment = $environment;
 
         return $this;
     }
