@@ -35,11 +35,10 @@ class Validator
 
         $violations = $validator->validate(
             $data,
-            new Assert\Collection(array(
-                'fields' => $constraints,
-                'allowExtraFields' => false,
-                'allowMissingFields' => true
-                )
+            new Assert\Collection(
+                fields: $constraints,
+                allowExtraFields: false,
+                allowMissingFields: true
             )
         );
 

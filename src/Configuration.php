@@ -98,7 +98,9 @@ class Configuration
      */
     public function getHost(): string
     {
-        return ($this->environment == ApiEnvironmentType::PRODUCTION) ? ApiEnvironmentType::PRODUCTION_ENDPOINT->value : ApiEnvironmentType::SANDBOX_ENDPOINT->value;
+        return ($this->environment == ApiEnvironmentType::PRODUCTION)
+            ? ApiEnvironmentType::PRODUCTION_ENDPOINT->value
+            : ApiEnvironmentType::SANDBOX_ENDPOINT->value;
     }
 
     /**
