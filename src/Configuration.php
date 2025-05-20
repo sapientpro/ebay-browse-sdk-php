@@ -25,14 +25,14 @@ class Configuration
      *
      * @var string
      */
-    protected string $environment = ApiEnvironmentType::SANDBOX->value;
+    protected ApiEnvironmentType $environment = ApiEnvironmentType::PRODUCTION;
 
     /**
      * The host
      *
      * @var string
      */
-    protected string $host = ApiEnvironmentType::SANDBOX_ENDPOINT->value;
+    protected string $host = ApiEnvironmentType::PRODUCTION_ENDPOINT->value;
 
     /**
      * User agent of the HTTP request, set to "SapientPro" by default
@@ -147,7 +147,7 @@ class Configuration
      *
      * @return string environment
      */
-    public function getApiEnvironment(): string
+    public function getApiEnvironment(): ApiEnvironmentType
     {
         return $this->environment;
     }
@@ -159,7 +159,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setApiEnvironment(string $environment): self
+    public function setApiEnvironment(ApiEnvironmentType $environment): self
     {
         $this->environment = $environment;
 
