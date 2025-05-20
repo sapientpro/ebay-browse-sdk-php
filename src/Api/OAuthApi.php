@@ -65,16 +65,16 @@ class OAuthApi implements EbayApiInterface
      * Operation getToken
      *
      * <p>This method retrieves a valid OAuth token.</p><p>All eBay REST APIs use the OAuth 2.0 protocol for application and user authorization. OAuth is the industry standard for assuring your online transactions are secure and you must provide a valid access token for each request you make to the eBay REST interfaces. <a href="/api-docs/static/oauth-client-credentials-grant.html">API Restrictions</a></p><h3><b> Request headers</b></h3> Set the following HTTP request headers:<ul><li>Content-Type – Must be set to: application/x-www-form-urlencoded</li><li>Authorization – The word "Basic " followed by your Base64-encoded OAuth credentials (<code><client_id>:<client_secret></code>).</li></ul> For details, see <a href="/api-docs/static/oauth-base64-credentials.html">Generating your Base64-encoded credentials</a>.<h3><b> Restrictions </b></h3>Format the payload of your POST request with the following values:<ul><li>Set grant_type to client_credentials.</li><li>Set scope to the URL-encoded space-separated list of the scopes needed for the interfaces you call with the access token.</li></ul>For details, see <a href="/api-docs/static/oauth-scopes.html#specifying-scopes">Using OAuth to access eBay APIs</a>.
-     * @param string $clientId Application keys App ID (Client ID).
-     * @param string $clientSecret Application keys Cert ID (Client Secret).
-     * @param string|null $scope URL-encoded space-separated list of the scopes needed for the interfaces you call with the access token.
+     * @param array $clientId Array ['SANDBOX' => '', 'PRODUCTION' => ''] of application keys App ID (Client ID).
+     * @param array $clientSecret Array ['SANDBOX' => '', 'PRODUCTION' => ''] of application keys Cert ID (Client Secret).
+     * @param array|null $scope Array of SapientPro\EbayBrowseSDK\Enums\OAuthTokenScopesEnum of the scopes needed for the interfaces you call with the access token.
      * @return OAuthToken|null
      * @throws ApiException on non-2xx response
      */
     public function getToken(
-        string $clientId,
-        string $clientSecret,
-        string $scope = null
+        array $clientId,
+        array $clientSecret,
+        ?array $scope = null
     ): ?OAuthToken {
         $response = $this->getOAuthWithHttpInfo(
             $clientId,
@@ -85,9 +85,9 @@ class OAuthApi implements EbayApiInterface
     }
 
     /**
-     * @param string $clientId Application keys App ID (Client ID).
-     * @param string $clientSecret Application keys Cert ID (Client Secret).
-     * @param string|null $scope URL-encoded space-separated list of the scopes needed for the interfaces you call with the access token.
+     * @param array $clientId Array ['SANDBOX' => '', 'PRODUCTION' => ''] of application keys App ID (Client ID).
+     * @param array $clientSecret Array ['SANDBOX' => '', 'PRODUCTION' => ''] of application keys Cert ID (Client Secret).
+     * @param array|null $scope Array of SapientPro\EbayBrowseSDK\Enums\OAuthTokenScopesEnum of the scopes needed for the interfaces you call with the access token.
      * @return array
      * @throws ApiException on non-2xx response
      * @ignore
@@ -95,9 +95,9 @@ class OAuthApi implements EbayApiInterface
      *
      */
     public function getOAuthWithHttpInfo(
-        string $clientId,
-        string $clientSecret,
-        string $scope
+        array $clientId,
+        array $clientSecret,
+        ?array $scope = null
     ): array {
         $request = $this->getOAuthRequest(
             $clientId,
@@ -110,29 +110,33 @@ class OAuthApi implements EbayApiInterface
 
     /**
      * @ignore
-     * @param string $clientId Application keys App ID (Client ID).
-     * @param string $clientSecret Application keys Cert ID (Client Secret).
-     * @param string|null $scope URL-encoded space-separated list of the scopes needed for the interfaces you call with the access token.
+     * @param array $clientId Array ['SANDBOX' => '', 'PRODUCTION' => ''] of application keys App ID (Client ID).
+     * @param array $clientSecret Array ['SANDBOX' => '', 'PRODUCTION' => ''] of application keys Cert ID (Client Secret).
+     * @param array|null $scope Array of SapientPro\EbayBrowseSDK\Enums\OAuthTokenScopesEnum of the scopes needed for the interfaces you call with the access token.
      * @return Request
      * Create request object for operation getItem
      *
      */
     private function getOAuthRequest(
-        string $clientId,
-        string $clientSecret,
-        string $scope = null
+        array $clientId,
+        array $clientSecret,
+        ?array $scope = null
     ): Request {
         $resourcePath = '/identity/v1/oauth2/token';
+
+        $env = $this->config->getApiEnvironment();
 
         $headerParameters = [
             'Accept' => ['*/*'],
             'Content-Type' => ['application/x-www-form-urlencoded'],
-            'Authorization' =>  'Basic ' . base64_encode($clientId.':'.$clientSecret),
+            'Authorization' =>  'Basic ' . base64_encode($clientId[$env->value].':'.$clientSecret[$env->value]),
         ];
         
         $body = new OAuthRequest();
         $body->grant_type = 'client_credentials';
-        $body->scope = $scope;
+        if($scope) {
+            $body->scope = implode(' ', array_map(function($enum) {return $enum->value;}, $scope));
+        }
 
         return $this->ebayRequest->postRequest(
             $resourcePath,
