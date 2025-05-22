@@ -131,15 +131,19 @@ class OAuthApi implements EbayApiInterface
                 );
                 // Save data for next refresh
                 if($response) {
-                    $response['data']->creation_timestamp = $cachedToken->creation_timestamp;
-                    $response['data']->refresh_token_timestamp = time();
-                    file_put_contents($tokenFile, json_encode($response['data']));
+                    $cachedToken->access_token = $response['data']->access_token;
+                    $cachedToken->expires_in = $response['data']->expires_in;
+                    $cachedToken->refresh_token_timestamp = time();
+                    file_put_contents($tokenFile, json_encode($cachedToken));
                     
                     return $response['data'];
                 }
 
                 return null;
-            }
+            } else {
+                // Remove data's file to process new token
+                unlink($tokenFile);
+			}
         }
         
         $response = $this->getOAuthWithHttpInfo(
