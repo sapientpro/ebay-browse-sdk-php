@@ -107,61 +107,44 @@ class OAuthApi implements EbayApiInterface
         array $clientId,
         array $clientSecret,
         string $redirectUri,
-        string $code,
-    ): ?OAuthToken {
-        $tokenFile = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR ."tokenData.info";
-
-        if(file_exists($tokenFile)) {
-            $cachedToken = $this->serializer->deserialize(file_get_contents($tokenFile), OAuthToken::class);
-            $lastTimestamp = ($cachedToken->refresh_token_timestamp) ? $cachedToken->refresh_token_timestamp : $cachedToken->creation_timestamp;
-            
-            // If cached token is still valid return it
-            if(($cachedToken->expires_in + $lastTimestamp) > time()) {
-                return $cachedToken;
-            }
-
-            // If cached refresh token is still valid renew token
-            if(($cachedToken->refresh_token_expires_in + $lastTimestamp) > time()) {
-                $response = $this->getOAuthWithHttpInfo(
-                    $clientId,
-                    $clientSecret,
-                    GrantTypeEnum::REFRESH_TOKEN,
-                    redirectUri:$redirectUri,
-                    refreshToken:$cachedToken->refresh_token
-                );
-                // Save data for next refresh
-                if($response) {
-                    $cachedToken->access_token = $response['data']->access_token;
-                    $cachedToken->expires_in = $response['data']->expires_in;
-                    $cachedToken->refresh_token_timestamp = time();
-                    file_put_contents($tokenFile, json_encode($cachedToken));
-                    
-                    return $response['data'];
-                }
-
-                return null;
-            } else {
-                // Remove data's file to process new token
-                unlink($tokenFile);
-			}
-        }
-        
+        string $code
+    ): ?OAuthToken {        
         $response = $this->getOAuthWithHttpInfo(
             $clientId,
             $clientSecret,
             GrantTypeEnum::AUTHORIZATION_CODE,
-            null,
-            $redirectUri,
-            $code
+            redirectUri:$redirectUri,
+            code:$code
         );
         
-        // Save data for refresh
-        if($response) {
-            touch($tokenFile);
-            $response['data']->creation_timestamp = time();
-            file_put_contents($tokenFile, json_encode($response['data']));
-        }
-        
+        return $response['data'] ?? null;
+    }
+
+    /**
+     * Operation refreshAuthorizationToken
+     *
+     * <<p>When you mint a new User access token, the access token is returned along with a <i>refresh token</i>, which you can use to renew the User access token for the associated user. A <b>refresh token request</b> mints an access token that contains the same authorization properties as the original access token.</p><h2 id="about">About refresh tokens</h2><p>For security, a User access token is short-lived. However, a refresh token is long-lived and you can use it to renew a User access token after the token expires. The benefit is that you don't need to get the account-owner's consent each time you need to renew their User access token.</p>
+     * @param array $clientId Array ['SANDBOX' => '', 'PRODUCTION' => ''] of application keys App ID (Client ID).
+     * @param array $clientSecret Array ['SANDBOX' => '', 'PRODUCTION' => ''] of application keys Cert ID (Client Secret).
+     * @param string $redirectUri The 'RuName' value assigned to your application and the environment you're targeting.
+     * @param string $refreshToken The refresh token returned while creating a oAuth token.
+     * @return OAuthToken|null
+     * @throws ApiException on non-2xx response
+     */
+    public function refreshAuthorizationToken(
+        array $clientId,
+        array $clientSecret,
+        string $redirectUri,
+        string $refreshToken,
+    ): ?OAuthToken {
+        $response = $this->getOAuthWithHttpInfo(
+            $clientId,
+            $clientSecret,
+            GrantTypeEnum::REFRESH_TOKEN,
+            redirectUri:$redirectUri,
+            refreshToken:$refreshToken
+        );
+
         return $response['data'] ?? null;
     }
 
@@ -200,7 +183,7 @@ class OAuthApi implements EbayApiInterface
         try {
             return $this->ebayClient->sendRequest($request, returnType: OAuthToken::class);
         } catch (ApiException $e) {
-            if($e->getCode() == 400) {
+            if ($e->getCode() == 400) {
                 $env = strtolower($this->config->getApiEnvironment()->value);
 
                 throw new \Exception("{$e->getMessage()} -> Get a new authorization code value returned by https://developer.ebay.com/my/auth/?env={$env}");
@@ -245,16 +228,16 @@ class OAuthApi implements EbayApiInterface
         $body = new OAuthRequest();
         $body->grant_type = $grantType->value;
 
-        if($scope) {
+        if ($scope) {
             $body->scope = implode(' ', array_map(function($enum) {return $enum->value;}, $scope));
         }
-        if($redirectUri) {
+        if ($redirectUri) {
             $body->redirect_uri = $redirectUri;
         }
-        if($code) {
+        if ($code) {
             $body->code = $code;
         }
-        if($refreshToken) {
+        if ($refreshToken) {
             $body->refresh_token = $refreshToken;
         }
         
