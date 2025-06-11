@@ -46,7 +46,13 @@ class EbayRequest
     ): Request {
         $query = $this->processParameters($queryParameters);
         $headers = $this->processHeaders(HttpMethodEnum::POST, $headerParameters, $body);
-        $serializedBody = $body ? $this->serializer->serialize($body) : null;
+        $serializedBody = null;
+        
+        if(isset($headerParameters['Content-Type']) && in_array('application/x-www-form-urlencoded', $headerParameters['Content-Type']) !== false) {
+            $serializedBody = http_build_query($body);
+        } else {
+            $serializedBody = $body ? $this->serializer->serialize($body) : null;
+        }
 
         return new Request(
             HttpMethodEnum::POST->value,
@@ -102,19 +108,24 @@ class EbayRequest
         EbayModelInterface $body = null,
     ): array {
         $filteredParameters = $this->filterParameters($headerParameters);
+        
+        $contentType = ['application/json'];
+        if(isset($filteredParameters['Content-Type'])) {
+            $contentType = $filteredParameters['Content-Type'];
+        }
 
         $headers = match ($method) {
             HttpMethodEnum::GET => $this->headerSelector->selectHeaders(
-                ['application/json'],
+                $contentType,
                 []
             ),
             HttpMethodEnum::POST => $this->headerSelector->selectHeaders(
-                ['application/json'],
-                $body ? ['application/json'] : []
+                isset($filteredParameters['Accept']) ? $filteredParameters['Accept'] : $contentType,
+                $body ? $contentType : []
             ),
             HttpMethodEnum::PUT => $this->headerSelector->selectHeaders(
                 [],
-                ['application/json']
+                $contentType
             ),
             HttpMethodEnum::DELETE => $this->headerSelector->selectHeaders(
                 [],
@@ -123,7 +134,7 @@ class EbayRequest
         };
 
         // this endpoint requires OAuth (access token)
-        if (null !== $this->config->getAccessToken()) {
+        if (!isset($headerParameters['Authorization']) && null !== $this->config->getAccessToken()) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
