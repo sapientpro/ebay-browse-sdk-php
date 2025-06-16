@@ -47,8 +47,8 @@ class EbayRequest
         $query = $this->processParameters($queryParameters);
         $headers = $this->processHeaders(HttpMethodEnum::POST, $headerParameters, $body);
         $serializedBody = null;
-        
-        if(isset($headerParameters['Content-Type']) && in_array('application/x-www-form-urlencoded', $headerParameters['Content-Type']) !== false) {
+
+        if (isset($headerParameters['Content-Type']) && in_array('application/x-www-form-urlencoded', $headerParameters['Content-Type']) !== false) {
             $serializedBody = http_build_query($body);
         } else {
             $serializedBody = $body ? $this->serializer->serialize($body) : null;
@@ -108,9 +108,9 @@ class EbayRequest
         EbayModelInterface $body = null,
     ): array {
         $filteredParameters = $this->filterParameters($headerParameters);
-        
+
         $contentType = ['application/json'];
-        if(isset($filteredParameters['Content-Type'])) {
+        if (isset($filteredParameters['Content-Type'])) {
             $contentType = $filteredParameters['Content-Type'];
         }
 
