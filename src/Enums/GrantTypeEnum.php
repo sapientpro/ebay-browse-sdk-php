@@ -8,7 +8,7 @@ enum GrantTypeEnum: string
      * Indicates grant type for authorization code.
      */
     case AUTHORIZATION_CODE = 'authorization_code';
- 
+
     /**
      * Indicates grant type for client credentials.
      */
@@ -18,10 +18,9 @@ enum GrantTypeEnum: string
      * Indicates grant type for implicit token.
      */
     case IMPLICIT_GRANT = 'token';
- 
+
     /**
      * Indicates grant type for refresh token.
      */
     case REFRESH_TOKEN = 'refresh_token';
-
 }

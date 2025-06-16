@@ -167,40 +167,39 @@ enum OAuthTokenScopesEnum: string
     case SELL_STORES_READONLY = 'https://api.ebay.com/oauth/api_scope/sell.stores.readonly';
 
     // Client Credential Grant Type
-    
+
     /**
      * View curated feeds of eBay items.
      */
     case BUY_ITEM_FEED = 'https://api.ebay.com/oauth/api_scope/buy.item.feed';
-    
+
     /**
      * Retrieve eBay product and listing data for use in marketing merchandise to buyers.
      */
     case BUY_MARKETING = 'https://api.ebay.com/oauth/api_scope/buy.marketing';
-    
+
     /**
      * This scope would allow applications to access product feeds.
      */
     case BUY_PRODUCT_FEED = 'https://api.ebay.com/oauth/api_scope/buy.product.feed';
-    
+
     /**
      * View historical sales data to help buyers make informed purchasing decisions.
      */
     case BUY_MARKETPLACE_INSIGHTS = 'https://api.ebay.com/oauth/api_scope/buy.marketplace.insights';
-    
+
     /**
      * Purchase eBay items anywhere, using an external vault for PCI compliance.
      */
     case BUY_PROXY_GUEST_ORDER = 'https://api.ebay.com/oauth/api_scope/buy.proxy.guest.order';
-    
+
     /**
      * Retrieve eBay items in bulk.
      */
     case BUY_ITEM_BULK = 'https://api.ebay.com/oauth/api_scope/buy.item.bulk';
-    
+
     /**
      * View eBay sale events and deals.
      */
     case BUY_DEAL = 'https://api.ebay.com/oauth/api_scope/buy.deal';
-
 }

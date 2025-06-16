@@ -207,7 +207,7 @@ class OAuthApi implements EbayApiInterface
         ?array $scope = null,
         ?string $redirectUri = null,
         ?string $code = null,
-        ?string $refreshToken  = null
+        ?string $refreshToken = null
     ): Request {
         $resourcePath = '/identity/v1/oauth2/token';
 
